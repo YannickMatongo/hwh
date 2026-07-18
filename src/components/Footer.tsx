@@ -33,6 +33,7 @@ export default function Footer() {
             </div>
 
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12">
+              <Link to="/reservation" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Réserver un rendez-vous</Link>
               <Link to="/contact" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Contact</Link>
               <a href="#" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Privacy Policy</a>
               <a href="#" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Terms of Service</a>
@@ -43,7 +44,15 @@ export default function Footer() {
         </div>
 
         <div className="text-center text-gray-700 text-[9px] sm:text-[10px] uppercase font-black tracking-[0.2em] sm:tracking-[0.3em] border-t border-white/5 pt-8">
-          © 2024 HWH CONSULTING. PRESTIGE PERFORMANCE GUARANTEED.
+          © 2024 HWH CONSULTING. Site développé par{" "}
+          <a
+            href="https://www.linkedin.com/in/yannick-matongo-developpeur-web/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-gray-500 hover:text-[#D32F2F] transition-colors"
+          >
+            yannickdev
+          </a>
         </div>
       </div>
     </footer>

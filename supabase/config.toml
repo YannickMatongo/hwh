@@ -1,0 +1,11 @@
+# Run `supabase link --project-ref <your-project-ref>` before deploying,
+# then `supabase db push` and `supabase functions deploy`.
+
+[functions.get-availability]
+verify_jwt = false
+
+[functions.create-booking]
+verify_jwt = false
+
+[functions.handle-booking-action]
+verify_jwt = false

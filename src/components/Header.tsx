@@ -1,4 +1,4 @@
-import { Menu } from "lucide-react";
+import { Instagram, Linkedin, Menu, X } from "lucide-react";
 import { MouseEvent, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 
@@ -23,6 +23,13 @@ export default function Header() {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  useEffect(() => {
+    document.body.style.overflow = isMenuOpen ? "hidden" : "";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isMenuOpen]);
 
   const handleSectionLinkClick = (e: MouseEvent, id: string) => {
     e.preventDefault();
@@ -63,6 +70,12 @@ export default function Header() {
             Services
           </a>
           <Link
+            to="/reservation"
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
+          >
+            Réserver un rendez-vous
+          </Link>
+          <Link
             to="/contact"
             className="bg-[#D32F2F] hover:bg-[#b02626] transition-colors px-6 py-3 rounded-md text-white text-sm font-bold"
           >
@@ -81,36 +94,90 @@ export default function Header() {
       </div>
 
       {isMenuOpen && (
-        <nav className="md:hidden flex flex-col items-stretch gap-1 px-4 sm:px-6 pb-6 bg-black border-t border-white/10">
-          <Link
-            to="/"
-            onClick={() => setIsMenuOpen(false)}
-            className="py-3 text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide border-b border-white/5"
-          >
-            Accueil
-          </Link>
-          <a
-            href="#expertise"
-            onClick={(e) => handleSectionLinkClick(e, "expertise")}
-            className="py-3 text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide border-b border-white/5"
-          >
-            Expertise
-          </a>
-          <a
-            href="#services"
-            onClick={(e) => handleSectionLinkClick(e, "services")}
-            className="py-3 text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide border-b border-white/5"
-          >
-            Services
-          </a>
-          <Link
-            to="/contact"
-            onClick={() => setIsMenuOpen(false)}
-            className="mt-3 text-center bg-[#D32F2F] hover:bg-[#b02626] transition-colors px-6 py-3 rounded-md text-white text-sm font-bold"
-          >
-            Contact
-          </Link>
-        </nav>
+        <div className="fixed inset-0 bg-white z-50 flex flex-col md:hidden font-sans">
+          {/* Header */}
+          <div className="flex items-center justify-between px-6 py-5 border-b border-gray-100">
+            <button
+              onClick={() => setIsMenuOpen(false)}
+              className="p-1 text-[#D32F2F] hover:opacity-80 transition-opacity"
+              aria-label="Fermer le menu"
+            >
+              <X className="w-6 h-6 stroke-[1.5]" />
+            </button>
+            <img src="/logo.png" alt="Logo HWH Consulting" className="h-8" />
+            <div className="w-8" aria-hidden="true" />
+          </div>
+
+          <div className="flex-1 overflow-y-auto pb-10">
+            {/* Main Navigation */}
+            <nav className="flex flex-col items-center gap-8 mt-12">
+              <Link
+                to="/"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
+              >
+                Accueil
+              </Link>
+              <a
+                href="#expertise"
+                onClick={(e) => handleSectionLinkClick(e, "expertise")}
+                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
+              >
+                Expertise
+              </a>
+              <a
+                href="#services"
+                onClick={(e) => handleSectionLinkClick(e, "services")}
+                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
+              >
+                Services
+              </a>
+              <Link
+                to="/catalogue"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
+              >
+                Catalogue
+              </Link>
+              <Link
+                to="/reservation"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
+              >
+                Réservation
+              </Link>
+              <Link
+                to="/contact"
+                onClick={() => setIsMenuOpen(false)}
+                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
+              >
+                Contact
+              </Link>
+            </nav>
+
+            {/* Social Icons */}
+            <div className="flex items-center justify-center gap-6 mt-16">
+              <a
+                href="#"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Instagram"
+                className="text-black hover:text-[#D32F2F] transition-colors"
+              >
+                <Instagram className="w-5 h-5 stroke-[2]" />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/georgesdavid/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="LinkedIn"
+                className="text-black hover:text-[#D32F2F] transition-colors"
+              >
+                <Linkedin className="w-5 h-5 stroke-[2]" />
+              </a>
+            </div>
+          </div>
+        </div>
       )}
     </header>
   );

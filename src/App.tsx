@@ -12,6 +12,7 @@ import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
 import Catalogue from "./components/Catalogue";
 import Contact from "./components/Contact";
+import Reservation from "./components/Reservation";
 import SEO from "./components/SEO";
 
 const HOME_DESCRIPTION =
@@ -58,6 +59,7 @@ export default function App() {
       <Route path="/" element={<Home />} />
       <Route path="/catalogue" element={<Catalogue />} />
       <Route path="/contact" element={<Contact />} />
+      <Route path="/reservation" element={<Reservation />} />
     </Routes>
   );
 }
