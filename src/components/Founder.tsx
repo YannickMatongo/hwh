@@ -32,7 +32,7 @@ export default function Founder() {
             <div className="relative aspect-[4/3] w-full overflow-hidden grayscale brightness-105 contrast-110">
               <img
                 src="/george.jpg"
-                alt="Georges D."
+                alt="Georges D., fondateur et consultant en sûreté chez HWH Consulting"
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-0 right-0 w-8 h-8 bg-[#D32F2F] flex items-center justify-center">

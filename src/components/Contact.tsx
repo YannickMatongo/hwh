@@ -9,6 +9,7 @@ import { Mail, Phone, Linkedin, Send, Check, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import SEO from "./SEO";
 
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdaqeyqj";
 
@@ -88,10 +89,15 @@ export default function Contact() {
 
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
+      <SEO
+        title="Contact | HWH Consulting"
+        description="Contactez HWH Consulting pour un audit de sécurité, une conférence ou une formation opérationnelle."
+        path="/contact"
+      />
       <Header />
 
       <main>
-        <section className="pt-28 sm:pt-32 md:pt-40 pb-16 sm:pb-24 md:pb-32 px-6">
+        <section className="pt-28 sm:pt-32 md:pt-40 lg:pt-48 pb-16 sm:pb-24 md:pb-32 px-4 lg:px-16">
           <div className="max-w-5xl mx-auto">
             <motion.div
               initial={{ opacity: 0, y: 30 }}
@@ -99,11 +105,11 @@ export default function Contact() {
               transition={{ duration: 0.8, ease: "easeOut" }}
               className="w-full bg-white rounded-[2rem] md:rounded-[2.5rem] shadow-xl overflow-hidden border border-gray-200"
             >
-              <div className="p-6 sm:p-8 md:p-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-8 items-center">
+              <div className="px-4 py-6 sm:py-8 md:py-12 lg:p-16 grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-12 items-center">
                 {/* Left Section - Description & Info */}
                 <div className="lg:col-span-6 flex flex-col gap-6 md:gap-8">
                   <div className="flex items-center gap-4">
-                    <img src="/logo.png" alt="HWH" className="h-8 sm:h-10" />
+                    <img src="/logo.png" alt="Logo HWH Consulting" className="h-8 sm:h-10" />
 
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
@@ -193,7 +199,7 @@ export default function Contact() {
                   initial={{ opacity: 0, scale: 0.95 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.3, duration: 0.7, type: "spring", stiffness: 100 }}
-                  className="lg:col-span-6 bg-[#D32F2F] rounded-[2rem] p-6 md:p-8 lg:p-12 shadow-sm relative min-h-[460px] flex flex-col justify-between"
+                  className="lg:col-span-6 bg-[#D32F2F] rounded-[2rem] p-10 lg:p-12 shadow-sm relative min-h-[460px] flex flex-col justify-between"
                 >
                   <AnimatePresence mode="wait">
                     {!isSuccess ? (
@@ -221,7 +227,7 @@ export default function Contact() {
                                 if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
                               }}
                               placeholder="Nom"
-                              className={`w-full bg-white border border-gray-200 rounded-2xl py-3 lg:py-4 px-4 text-black placeholder-gray-400 font-medium text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.name ? "ring-2 ring-black" : ""}`}
+                              className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.name ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.name && (
                               <p className="text-white text-xs mt-1 font-semibold">{errors.name}</p>
@@ -241,7 +247,7 @@ export default function Contact() {
                                 if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
                               }}
                               placeholder="Email"
-                              className={`w-full bg-white border border-gray-200 rounded-2xl py-3 lg:py-4 px-4 text-black placeholder-gray-400 font-medium text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.email ? "ring-2 ring-black" : ""}`}
+                              className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.email ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.email && (
                               <p className="text-white text-xs mt-1 font-semibold">{errors.email}</p>
@@ -261,7 +267,7 @@ export default function Contact() {
                                 if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
                               }}
                               placeholder="Téléphone"
-                              className={`w-full bg-white border border-gray-200 rounded-2xl py-3 lg:py-4 px-4 text-black placeholder-gray-400 font-medium text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.phone ? "ring-2 ring-black" : ""}`}
+                              className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.phone ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.phone && (
                               <p className="text-white text-xs mt-1 font-semibold">{errors.phone}</p>
@@ -281,7 +287,7 @@ export default function Contact() {
                                 if (errors.message) setErrors((prev) => ({ ...prev, message: undefined }));
                               }}
                               placeholder="Décrivez votre besoin (audit, formation, conférence...)"
-                              className={`w-full bg-white border border-gray-200 rounded-2xl py-3 lg:py-4 px-4 text-black placeholder-gray-400 font-medium text-sm lg:text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 resize-none ${errors.message ? "ring-2 ring-black" : ""}`}
+                              className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 resize-none min-h-[140px] lg:min-h-0 ${errors.message ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.message && (
                               <p className="text-white text-xs mt-1 font-semibold">{errors.message}</p>
@@ -297,7 +303,7 @@ export default function Contact() {
                           <button
                             type="submit"
                             disabled={isSubmitting}
-                            className="inline-flex items-center gap-3 bg-black text-white font-bold pl-2 pr-6 py-2 rounded-full shadow-sm hover:bg-gray-800 hover:shadow-md active:scale-98 transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed group"
+                            className="flex lg:inline-flex w-full lg:w-auto items-center justify-center lg:justify-start gap-3 bg-black text-white font-bold pl-2 pr-6 py-4 lg:py-2 rounded-full shadow-sm hover:bg-gray-800 hover:shadow-md active:scale-98 transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed group"
                           >
                             <div className="w-10 h-10 bg-[#D32F2F] text-white rounded-full flex items-center justify-center group-hover:rotate-12 transition-transform duration-300">
                               {isSubmitting ? (

@@ -37,11 +37,17 @@ export default function Header() {
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black border-b border-[#D32F2F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-        <div className="text-xl sm:text-2xl font-bold tracking-tighter flex items-center text-white">
+        <Link to="/" className="text-xl sm:text-2xl font-bold tracking-tighter flex items-center text-white cursor-pointer">
           HWH<span className="w-2 h-2 bg-[#D32F2F] rounded-full ml-1"></span>
-        </div>
+        </Link>
 
         <nav className="hidden md:flex items-center gap-10">
+          <Link
+            to="/"
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
+          >
+            Accueil
+          </Link>
           <a
             href="#expertise"
             onClick={(e) => handleSectionLinkClick(e, "expertise")}
@@ -76,6 +82,13 @@ export default function Header() {
 
       {isMenuOpen && (
         <nav className="md:hidden flex flex-col items-stretch gap-1 px-4 sm:px-6 pb-6 bg-black border-t border-white/10">
+          <Link
+            to="/"
+            onClick={() => setIsMenuOpen(false)}
+            className="py-3 text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide border-b border-white/5"
+          >
+            Accueil
+          </Link>
           <a
             href="#expertise"
             onClick={(e) => handleSectionLinkClick(e, "expertise")}

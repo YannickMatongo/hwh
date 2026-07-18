@@ -3,6 +3,7 @@ import { BarChart3, ChevronRight, Mic, School } from "lucide-react";
 import { Link } from "react-router-dom";
 import Header from "./Header";
 import Footer from "./Footer";
+import SEO from "./SEO";
 
 const categories = [
   {
@@ -49,6 +50,11 @@ const categories = [
 export default function Catalogue() {
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
+      <SEO
+        title="Catalogue des Prestations | HWH Consulting"
+        description="Découvrez les prestations HWH Consulting : audit et conseil en sécurité, conférences de sensibilisation et formations opérationnelles pour les équipes retail, luxe et sport."
+        path="/catalogue"
+      />
       <Header />
 
       <main>
@@ -93,7 +99,7 @@ export default function Catalogue() {
                         </div>
                         <span className="text-black/10 font-black text-2xl font-mono">{category.number}</span>
                       </div>
-                      <h3 className="text-2xl sm:text-3xl font-black uppercase mb-4 text-black">{category.title}</h3>
+                      <h2 className="text-2xl sm:text-3xl font-black uppercase mb-4 text-black">{category.title}</h2>
                       <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8">{category.description}</p>
 
                       <ul className="space-y-3">
