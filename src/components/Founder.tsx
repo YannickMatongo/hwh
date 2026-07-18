@@ -1,3 +1,4 @@
+import { motion } from "motion/react";
 import { ChevronRight, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
 
@@ -6,7 +7,13 @@ export default function Founder() {
     <section id="fondateur" className="py-16 sm:py-20 md:py-32 px-6 bg-gray-50 border-y border-gray-200">
       <div className="max-w-7xl mx-auto">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 sm:gap-12 lg:gap-16 items-center">
-          <div className="lg:col-span-5 order-2 lg:order-1">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, ease: "easeOut" }}
+            className="lg:col-span-5 order-2 lg:order-1"
+          >
             <div className="space-y-6">
               <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase">Le Fondateur</div>
               <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase text-black">Georges D.</h2>
@@ -30,13 +37,20 @@ export default function Founder() {
                 </Link>
               </div>
             </div>
-          </div>
+          </motion.div>
 
-          <div className="lg:col-span-7 order-1 lg:order-2">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
+            className="lg:col-span-7 order-1 lg:order-2"
+          >
             <div className="relative aspect-[4/3] w-full overflow-hidden grayscale brightness-105 contrast-110">
               <img
                 src="/george.jpg"
                 alt="Georges D., fondateur et consultant en sûreté chez HWH Consulting"
+                loading="lazy"
                 className="w-full h-full object-cover"
               />
               <div className="absolute top-0 right-0 w-8 h-8 bg-[#D32F2F] flex items-center justify-center">
@@ -46,7 +60,7 @@ export default function Founder() {
                 HWH
               </div>
             </div>
-          </div>
+          </motion.div>
         </div>
       </div>
     </section>

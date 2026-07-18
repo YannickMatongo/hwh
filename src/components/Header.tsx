@@ -103,7 +103,7 @@ export default function Header() {
             >
               <X className="w-6 h-6 stroke-[1.5]" />
             </button>
-            <img src="/logo.png" alt="Logo HWH Consulting" className="h-8" />
+            <img src="/logo.png" alt="Logo HWH Consulting" loading="lazy" className="h-8" />
             <div className="w-8" aria-hidden="true" />
           </div>
 

@@ -3,22 +3,41 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
+import { lazy, Suspense } from "react";
 import { Route, Routes } from "react-router-dom";
+import { Loader2 } from "lucide-react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
-import Founder from "./components/Founder";
 import Stats from "./components/Stats";
 import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
-import Catalogue from "./components/Catalogue";
-import Contact from "./components/Contact";
-import Reservation from "./components/Reservation";
-import APropos from "./components/APropos";
-import PrivacyPolicy from "./components/PrivacyPolicy";
-import TermsOfService from "./components/TermsOfService";
-import GlobalFootprint from "./components/GlobalFootprint";
-import Careers from "./components/Careers";
 import SEO from "./components/SEO";
+
+const Founder = lazy(() => import("./components/Founder"));
+const Catalogue = lazy(() => import("./components/Catalogue"));
+const Contact = lazy(() => import("./components/Contact"));
+const Reservation = lazy(() => import("./components/Reservation"));
+const APropos = lazy(() => import("./components/APropos"));
+const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
+const TermsOfService = lazy(() => import("./components/TermsOfService"));
+const GlobalFootprint = lazy(() => import("./components/GlobalFootprint"));
+const Careers = lazy(() => import("./components/Careers"));
+
+function PageLoader() {
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-white">
+      <Loader2 className="w-8 h-8 text-[#D32F2F] animate-spin" />
+    </div>
+  );
+}
+
+function SectionLoader() {
+  return (
+    <div className="flex items-center justify-center py-24">
+      <Loader2 className="w-6 h-6 text-[#D32F2F] animate-spin" />
+    </div>
+  );
+}
 
 const HOME_DESCRIPTION =
   "HWH Consulting accompagne les enseignes retail, luxe et sport avec 20 ans d'expérience terrain : audits de sécurité, conférences et formations opérationnelles.";
@@ -48,7 +67,9 @@ function Home() {
 
       <main>
         <Hero />
-        <Founder />
+        <Suspense fallback={<SectionLoader />}>
+          <Founder />
+        </Suspense>
         <Stats />
         <Expertise />
       </main>
@@ -60,16 +81,18 @@ function Home() {
 
 export default function App() {
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/catalogue" element={<Catalogue />} />
-      <Route path="/contact" element={<Contact />} />
-      <Route path="/reservation" element={<Reservation />} />
-      <Route path="/a-propos" element={<APropos />} />
-      <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
-      <Route path="/conditions-generales" element={<TermsOfService />} />
-      <Route path="/presence" element={<GlobalFootprint />} />
-      <Route path="/carrieres" element={<Careers />} />
-    </Routes>
+    <Suspense fallback={<PageLoader />}>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/catalogue" element={<Catalogue />} />
+        <Route path="/contact" element={<Contact />} />
+        <Route path="/reservation" element={<Reservation />} />
+        <Route path="/a-propos" element={<APropos />} />
+        <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+        <Route path="/conditions-generales" element={<TermsOfService />} />
+        <Route path="/presence" element={<GlobalFootprint />} />
+        <Route path="/carrieres" element={<Careers />} />
+      </Routes>
+    </Suspense>
   );
 }

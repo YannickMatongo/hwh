@@ -4,16 +4,23 @@
  */
 
 import { ReactNode } from "react";
+import { motion } from "motion/react";
 import Header from "./Header";
 import Footer from "./Footer";
 import SEO from "./SEO";
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
-    <div className="mt-10 first:mt-0">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true, amount: 0.3 }}
+      transition={{ duration: 0.5, ease: "easeOut" }}
+      className="mt-10 first:mt-0"
+    >
       <h2 className="text-xl sm:text-2xl font-black uppercase tracking-tight text-black mb-3">{title}</h2>
       <div className="text-gray-600 leading-relaxed flex flex-col gap-3">{children}</div>
-    </div>
+    </motion.div>
   );
 }
 
@@ -34,10 +41,16 @@ export default function PrivacyPolicy() {
       <main>
         <section className="pt-28 sm:pt-32 md:pt-40 pb-16 sm:pb-24 md:pb-32 px-6">
           <div className="max-w-3xl mx-auto">
-            <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">Légal</div>
-            <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-tight text-black mb-10 sm:mb-14">
-              Politique de confidentialité
-            </h1>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, ease: "easeOut" }}
+            >
+              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">Légal</div>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-tight text-black mb-10 sm:mb-14">
+                Politique de confidentialité
+              </h1>
+            </motion.div>
 
             <Section title="Responsable du traitement">
               <p>
