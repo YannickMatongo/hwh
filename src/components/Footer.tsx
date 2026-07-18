@@ -35,10 +35,10 @@ export default function Footer() {
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12">
               <Link to="/reservation" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Réserver un rendez-vous</Link>
               <Link to="/contact" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Contact</Link>
-              <a href="#" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Privacy Policy</a>
-              <a href="#" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Terms of Service</a>
-              <a href="#" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Global footprint</a>
-              <a href="#" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Executive Careers</a>
+              <Link to="/politique-de-confidentialite" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Privacy Policy</Link>
+              <Link to="/conditions-generales" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Terms of Service</Link>
+              <Link to="/presence" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Global footprint</Link>
+              <Link to="/carrieres" className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">Executive Careers</Link>
             </div>
           </div>
         </div>

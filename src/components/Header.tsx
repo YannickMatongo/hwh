@@ -62,13 +62,12 @@ export default function Header() {
           >
             Expertise
           </a>
-          <a
-            href="#services"
-            onClick={(e) => handleSectionLinkClick(e, "services")}
+          <Link
+            to="/catalogue"
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
           >
             Services
-          </a>
+          </Link>
           <Link
             to="/reservation"
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
@@ -124,13 +123,6 @@ export default function Header() {
                 className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
               >
                 Expertise
-              </a>
-              <a
-                href="#services"
-                onClick={(e) => handleSectionLinkClick(e, "services")}
-                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
-              >
-                Services
               </a>
               <Link
                 to="/catalogue"

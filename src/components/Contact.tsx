@@ -17,6 +17,8 @@ export default function Contact() {
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
+  const [subject, setSubject] = useState("Audit");
+  const [customSubject, setCustomSubject] = useState("");
   const [message, setMessage] = useState("");
 
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -27,6 +29,7 @@ export default function Contact() {
     name?: string;
     phone?: string;
     email?: string;
+    customSubject?: string;
     message?: string;
   }>({});
 
@@ -42,6 +45,9 @@ export default function Contact() {
       newErrors.email = "L'email est requis";
     } else if (!/\S+@\S+\.\S+/.test(email)) {
       newErrors.email = "Adresse email invalide";
+    }
+    if (subject === "Autres" && !customSubject.trim()) {
+      newErrors.customSubject = "Merci de préciser le motif de votre demande";
     }
     if (!message.trim()) newErrors.message = "Merci de décrire votre besoin";
     setErrors(newErrors);
@@ -62,7 +68,14 @@ export default function Contact() {
           "Content-Type": "application/json",
           Accept: "application/json",
         },
-        body: JSON.stringify({ name, email, phone, message }),
+        body: JSON.stringify({
+          name,
+          email,
+          phone,
+          subject,
+          custom_subject: subject === "Autres" ? customSubject : undefined,
+          message,
+        }),
       });
 
       if (response.ok) {
@@ -81,6 +94,8 @@ export default function Contact() {
     setName("");
     setPhone("");
     setEmail("");
+    setSubject("Audit");
+    setCustomSubject("");
     setMessage("");
     setIsSuccess(false);
     setErrors({});
@@ -273,6 +288,53 @@ export default function Contact() {
                               <p className="text-white text-xs mt-1 font-semibold">{errors.phone}</p>
                             )}
                           </div>
+
+                          <div>
+                            <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
+                              Objet de votre demande
+                            </label>
+                            <select
+                              name="subject"
+                              value={subject}
+                              onChange={(e) => setSubject(e.target.value)}
+                              className="w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300"
+                            >
+                              <option value="Audit">Audit</option>
+                              <option value="Conférences">Conférences</option>
+                              <option value="Autres">Autres</option>
+                            </select>
+                          </div>
+
+                          <AnimatePresence>
+                            {subject === "Autres" && (
+                              <motion.div
+                                key="custom-subject"
+                                initial={{ opacity: 0, height: 0 }}
+                                animate={{ opacity: 1, height: "auto" }}
+                                exit={{ opacity: 0, height: 0 }}
+                                transition={{ duration: 0.25 }}
+                                className="overflow-hidden"
+                              >
+                                <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
+                                  Précisez le motif
+                                </label>
+                                <input
+                                  type="text"
+                                  name="custom_subject"
+                                  value={customSubject}
+                                  onChange={(e) => {
+                                    setCustomSubject(e.target.value);
+                                    if (errors.customSubject) setErrors((prev) => ({ ...prev, customSubject: undefined }));
+                                  }}
+                                  placeholder="Précisez le motif de votre demande"
+                                  className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.customSubject ? "ring-2 ring-black" : ""}`}
+                                />
+                                {errors.customSubject && (
+                                  <p className="text-white text-xs mt-1 font-semibold">{errors.customSubject}</p>
+                                )}
+                              </motion.div>
+                            )}
+                          </AnimatePresence>
 
                           <div>
                             <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">

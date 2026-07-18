@@ -1,4 +1,5 @@
 import { ChevronRight, ShieldCheck } from "lucide-react";
+import { Link } from "react-router-dom";
 
 export default function Founder() {
   return (
@@ -20,10 +21,13 @@ export default function Founder() {
               </blockquote>
 
               <div className="pt-6">
-                <button className="inline-flex items-center gap-2 group text-black font-bold uppercase tracking-widest text-xs hover:text-[#D32F2F] transition-colors">
+                <Link
+                  to="/a-propos"
+                  className="inline-flex items-center gap-2 group text-black font-bold uppercase tracking-widest text-xs hover:text-[#D32F2F] transition-colors"
+                >
                   Lire le profil complet
                   <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                </button>
+                </Link>
               </div>
             </div>
           </div>

@@ -13,6 +13,11 @@ import Footer from "./components/Footer";
 import Catalogue from "./components/Catalogue";
 import Contact from "./components/Contact";
 import Reservation from "./components/Reservation";
+import APropos from "./components/APropos";
+import PrivacyPolicy from "./components/PrivacyPolicy";
+import TermsOfService from "./components/TermsOfService";
+import GlobalFootprint from "./components/GlobalFootprint";
+import Careers from "./components/Careers";
 import SEO from "./components/SEO";
 
 const HOME_DESCRIPTION =
@@ -60,6 +65,11 @@ export default function App() {
       <Route path="/catalogue" element={<Catalogue />} />
       <Route path="/contact" element={<Contact />} />
       <Route path="/reservation" element={<Reservation />} />
+      <Route path="/a-propos" element={<APropos />} />
+      <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
+      <Route path="/conditions-generales" element={<TermsOfService />} />
+      <Route path="/presence" element={<GlobalFootprint />} />
+      <Route path="/carrieres" element={<Careers />} />
     </Routes>
   );
 }

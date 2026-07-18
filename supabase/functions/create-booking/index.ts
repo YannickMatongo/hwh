@@ -13,6 +13,8 @@ interface CreateBookingBody {
   name: string;
   email: string;
   phone?: string;
+  subject?: string;
+  custom_subject?: string;
   message?: string;
   requested_start: string;
   requested_end: string;
@@ -32,7 +34,7 @@ Deno.serve(async (req: Request) => {
 
   try {
     const body: CreateBookingBody = await req.json();
-    const { name, email, phone, message, requested_start, requested_end } = body;
+    const { name, email, phone, subject, custom_subject, message, requested_start, requested_end } = body;
 
     if (!name?.trim() || !email?.trim() || !requested_start || !requested_end) {
       return new Response(JSON.stringify({ error: "Champs requis manquants" }), {
@@ -61,12 +63,15 @@ Deno.serve(async (req: Request) => {
     const acceptUrl = `${functionsBaseUrl}?token=${booking.action_token}&action=accept`;
     const refuseUrl = `${functionsBaseUrl}?token=${booking.action_token}&action=refuse`;
 
+    const subjectLabel = subject === "Autres" && custom_subject ? `Autres — ${custom_subject}` : subject || "Non précisé";
+
     const html = `
       <div style="font-family: Arial, sans-serif; max-width: 560px; margin: 0 auto;">
         <h2 style="color:#D32F2F;">Nouvelle demande de rendez-vous</h2>
         <p><strong>Nom :</strong> ${escapeHtml(name)}</p>
         <p><strong>Email :</strong> ${escapeHtml(email)}</p>
         <p><strong>Téléphone :</strong> ${escapeHtml(phone || "Non renseigné")}</p>
+        <p><strong>Objet :</strong> ${escapeHtml(subjectLabel)}</p>
         <p><strong>Créneau demandé :</strong> ${formatParisDateTime(requested_start)} - ${formatParisTime(requested_end)}</p>
         <p><strong>Message :</strong><br/>${escapeHtml(message || "Aucun message")}</p>
         <div style="margin-top: 24px;">
