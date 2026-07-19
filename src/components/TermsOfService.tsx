@@ -5,6 +5,7 @@
 
 import { ReactNode } from "react";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import Header from "./Header";
 import Footer from "./Footer";
 import SEO from "./SEO";
@@ -24,17 +25,25 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-function Placeholder({ children }: { children: ReactNode }) {
-  return <span className="text-[#D32F2F] italic">[À compléter : {children}]</span>;
+function Placeholder({ text }: { text: string }) {
+  return <span className="text-[#D32F2F] italic">{text}</span>;
 }
 
+const EMAIL_LINK = (
+  <a href="mailto:consulting.hwh@gmail.com" className="text-black font-semibold hover:text-[#D32F2F] transition-colors">
+    consulting.hwh@gmail.com
+  </a>
+);
+
 export default function TermsOfService() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
       <SEO
-        title="Conditions générales | HWH Consulting"
-        description="Conditions générales de HWH Consulting : présentation de l'activité, modalités de prise de rendez-vous et conditions applicables."
-        path="/conditions-generales"
+        title={t("legal.terms.seo.title")}
+        description={t("legal.terms.seo.description")}
+        routeKey="terms"
       />
       <Header />
 
@@ -46,74 +55,57 @@ export default function TermsOfService() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">Légal</div>
+              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">{t("legal.terms.eyebrow")}</div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-tight text-black mb-10 sm:mb-14">
-                Conditions générales
+                {t("legal.terms.title")}
               </h1>
             </motion.div>
 
-            <Section title="Objet">
+            <Section title={t("legal.terms.sections.purpose.title")}>
+              <p>{t("legal.terms.sections.purpose.body")}</p>
+            </Section>
+
+            <Section title={t("legal.terms.sections.activity.title")}>
+              <p>{t("legal.terms.sections.activity.body")}</p>
               <p>
-                Les présentes conditions générales régissent l'utilisation du site HWH Consulting ainsi que les
-                relations entre HWH Consulting et toute personne sollicitant ses prestations d'audit, de formation
-                ou de conférence.
+                <Placeholder text={t("legal.terms.sections.activity.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Présentation de l'activité">
+            <Section title={t("legal.terms.sections.booking.title")}>
+              <p>{t("legal.terms.sections.booking.body")}</p>
+            </Section>
+
+            <Section title={t("legal.terms.sections.cancellation.title")}>
               <p>
-                HWH Consulting accompagne les entreprises des secteurs retail, luxe et sport sur les enjeux de
-                sûreté et de performance, à travers trois types de prestations : audit &amp; conseil, conférence, et
-                formation opérationnelle.
-              </p>
-              <p>
-                <Placeholder>forme juridique, numéro SIRET et adresse du siège social</Placeholder>
+                <Placeholder text={t("legal.terms.sections.cancellation.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Modalités de prise de rendez-vous">
+            <Section title={t("legal.terms.sections.pricing.title")}>
               <p>
-                Les demandes de rendez-vous sont soumises via le formulaire de réservation en ligne. Chaque demande
-                est examinée par l'équipe HWH Consulting et fait l'objet d'une confirmation ou d'un refus par email,
-                avant toute inscription définitive au calendrier.
+                <Placeholder text={t("legal.terms.sections.pricing.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Conditions d'annulation et de report">
+            <Section title={t("legal.terms.sections.liability.title")}>
+              <p>{t("legal.terms.sections.liability.body")}</p>
               <p>
-                <Placeholder>délai de préavis, modalités d'annulation ou de report d'un rendez-vous confirmé</Placeholder>
+                <Placeholder text={t("legal.terms.sections.liability.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Tarifs et modalités de paiement">
+            <Section title={t("legal.terms.sections.law.title")}>
               <p>
-                <Placeholder>grille tarifaire et modalités de paiement applicables aux prestations</Placeholder>
+                {t("legal.terms.sections.law.bodyPrefix")}
+                <Placeholder text={t("legal.terms.sections.law.placeholder")} />.
               </p>
             </Section>
 
-            <Section title="Limitation de responsabilité">
+            <Section title={t("legal.terms.sections.contact.title")}>
               <p>
-                HWH Consulting met en œuvre les moyens nécessaires à la bonne exécution de ses prestations. Sa
-                responsabilité ne saurait toutefois être engagée en cas de force majeure ou de fait indépendant de
-                sa volonté.
-              </p>
-              <p>
-                <Placeholder>clause de limitation de responsabilité détaillée, à valider avec un conseil juridique</Placeholder>
-              </p>
-            </Section>
-
-            <Section title="Droit applicable">
-              <p>
-                Les présentes conditions générales sont soumises au droit français. En cas de litige,{" "}
-                <Placeholder>tribunal compétent</Placeholder>.
-              </p>
-            </Section>
-
-            <Section title="Contact">
-              <p>
-                Pour toute question relative aux présentes conditions générales, vous pouvez contacter HWH
-                Consulting à l'adresse{" "}
-                <a href="mailto:consulting.hwh@gmail.com" className="text-black font-semibold hover:text-[#D32F2F] transition-colors">consulting.hwh@gmail.com</a>.
+                {t("legal.terms.sections.contact.bodyPrefix")}
+                {EMAIL_LINK}.
               </p>
             </Section>
           </div>

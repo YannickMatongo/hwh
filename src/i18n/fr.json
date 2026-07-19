@@ -1,0 +1,359 @@
+{
+  "common": {
+    "backHome": "Retour à l'accueil",
+    "logoAlt": "HWH Consulting",
+    "founderImageAlt": "Georges D., fondateur et consultant en sûreté chez HWH Consulting"
+  },
+  "home": {
+    "seo": {
+      "title": "HWH Consulting | Audit, Formation et Sûreté Retail",
+      "description": "HWH Consulting accompagne les enseignes retail, luxe et sport avec 20 ans d'expérience terrain : audits de sécurité, conférences et formations opérationnelles."
+    }
+  },
+  "header": {
+    "nav": {
+      "home": "Accueil",
+      "expertise": "Expertise",
+      "services": "Services",
+      "booking": "Réserver un rendez-vous",
+      "contact": "Contact"
+    },
+    "mobile": {
+      "home": "Accueil",
+      "expertise": "Expertise",
+      "catalogue": "Catalogue",
+      "reservation": "Réservation",
+      "contact": "Contact",
+      "closeMenu": "Fermer le menu"
+    },
+    "menuAriaLabel": "Menu"
+  },
+  "hero": {
+    "badge": "GEORGES D. | CONSULTANT FORMATEUR",
+    "titlePrefix": "Former et ",
+    "titleHighlight": "sécuriser",
+    "titleSuffix": " le futur.",
+    "subtitle": "Anticiper, transmettre et bâtir. Accompagnement stratégique pour entreprises visionnaires.",
+    "ctaPrimary": "Découvrir mon expertise",
+    "ctaSecondary": "Prendre rendez-vous"
+  },
+  "founder": {
+    "eyebrow": "Le Fondateur",
+    "name": "Georges D.",
+    "bio": "20 ans d'expérience terrain entre retail et sûreté, du sport au luxe : une expertise au service de la protection et de la performance de votre activité.",
+    "quote": "\"La sécurité n'est pas une option, c'est le socle de toute stratégie pérenne. Notre mission est d'anticiper, de former et de protéger.\"",
+    "cta": "Lire le profil complet"
+  },
+  "stats": {
+    "experience": "ans d'expérience",
+    "audits": "audits",
+    "investigations": "investigations",
+    "languages": "langues d'intervention"
+  },
+  "expertise": {
+    "eyebrow": "Expertise",
+    "title": "Interventions Stratégiques",
+    "card1": {
+      "title": "Audit & Conseil",
+      "description": "Un regard d'expert terrain sur vos points de vente, pour identifier les failles avant qu'elles ne vous coûtent cher."
+    },
+    "card2": {
+      "title": "Conférence",
+      "description": "Réunir les acteurs de la sûreté retail autour des enjeux qui façonnent demain la protection des enseignes."
+    },
+    "card3": {
+      "title": "Formation",
+      "description": "Transmettre 20 ans de terrain à vos équipes, pour qu'elles deviennent actrices de leur propre sûreté."
+    },
+    "viewCatalogue": "Voir le catalogue"
+  },
+  "catalogue": {
+    "seo": {
+      "title": "Catalogue des Prestations | HWH Consulting",
+      "description": "Découvrez les prestations HWH Consulting : audit et conseil en sécurité, conférences de sensibilisation et formations opérationnelles pour les équipes retail, luxe et sport."
+    },
+    "eyebrow": "Catalogue",
+    "title": "Catalogue des Prestations",
+    "categories": {
+      "audit": {
+        "title": "Audit & Conseil",
+        "description": "Évaluation exhaustive des vulnérabilités, analyse des risques et élaboration de protocoles de sécurité sur-mesure pour les infrastructures critiques.",
+        "items": [
+          "Audit de vulnérabilités physiques et numériques",
+          "Analyse de risques stratégiques",
+          "Élaboration de protocoles de sécurité sur-mesure",
+          "Accompagnement à la mise en conformité"
+        ]
+      },
+      "conference": {
+        "title": "Conférence",
+        "description": "Sensibilisation des comités de direction aux enjeux sécuritaires contemporains et à l'intelligence économique.",
+        "items": [
+          "Sensibilisation des comités de direction",
+          "Interventions sur l'intelligence économique",
+          "Ateliers de sensibilisation aux cybermenaces",
+          "Conférences grand public et corporate"
+        ]
+      },
+      "training": {
+        "title": "Formation Opérationnelle",
+        "description": "Programmes intensifs d'entraînement à la gestion de crise, protection rapprochée et sécurisation d'informations sensibles pour équipes de terrain.",
+        "items": [
+          "Gestion de crise et cellule de crise",
+          "Protection rapprochée",
+          "Sécurisation d'informations sensibles",
+          "Entraînement terrain pour équipes opérationnelles"
+        ]
+      }
+    }
+  },
+  "contact": {
+    "seo": {
+      "title": "Contact | HWH Consulting",
+      "description": "Contactez HWH Consulting pour un audit de sécurité, une conférence ou une formation opérationnelle."
+    },
+    "badge": "Prendre contact",
+    "title": "Parlons de votre projet",
+    "intro": "Audit de sécurité, conférence ou formation opérationnelle : décrivez-nous votre besoin via le formulaire ci-contre ou contactez-nous directement pour échanger sur votre projet.",
+    "callUs": "Appelez-nous",
+    "linkedinLabel": "LinkedIn",
+    "writeUs": "Écrivez-nous",
+    "form": {
+      "nameLabel": "Votre nom",
+      "namePlaceholder": "Nom",
+      "emailLabel": "Votre email",
+      "emailPlaceholder": "Email",
+      "phoneLabel": "Votre téléphone",
+      "phonePlaceholder": "Téléphone",
+      "subjectLabel": "Objet de votre demande",
+      "subjectOptions": {
+        "audit": "Audit",
+        "conferences": "Conférences",
+        "other": "Autres"
+      },
+      "customSubjectLabel": "Précisez le motif",
+      "customSubjectPlaceholder": "Précisez le motif de votre demande",
+      "messageLabel": "Votre message",
+      "messagePlaceholder": "Décrivez votre besoin (audit, formation, conférence...)",
+      "submit": "Envoyer",
+      "submitting": "Envoi...",
+      "errors": {
+        "name": "Le nom est requis",
+        "phone": "Le téléphone est requis",
+        "phoneInvalid": "Format de téléphone invalide",
+        "email": "L'email est requis",
+        "emailInvalid": "Adresse email invalide",
+        "customSubject": "Merci de préciser le motif de votre demande",
+        "message": "Merci de décrire votre besoin"
+      },
+      "submitErrorGeneric": "Une erreur est survenue lors de l'envoi. Veuillez réessayer.",
+      "submitErrorNetwork": "Impossible d'envoyer le message. Vérifiez votre connexion et réessayez."
+    },
+    "success": {
+      "title": "Message envoyé !",
+      "bodyPrefix": "Merci, ",
+      "bodySuffix": " ! Nous revenons vers vous rapidement pour échanger sur votre projet.",
+      "resendButton": "Envoyer un autre message"
+    }
+  },
+  "reservation": {
+    "seo": {
+      "title": "Réserver un rendez-vous | HWH Consulting",
+      "description": "Choisissez un créneau et réservez un rendez-vous avec HWH Consulting pour un audit de sécurité, une conférence ou une formation opérationnelle."
+    },
+    "profile": {
+      "role": "Consultant Formateur · Sûreté & Performance",
+      "titleLine1": "Réserver",
+      "titleLine2": "un rendez-vous",
+      "intro": "Échangeons sur vos besoins en audit, formation ou conférence. Choisissez un créneau et laissez-nous vos coordonnées : vous recevrez une confirmation par email une fois votre demande validée.",
+      "hours": "Lundi-Dimanche 9h-18h"
+    },
+    "calendar": {
+      "loading": "Chargement des disponibilités...",
+      "loadErrorGeneric": "Impossible de charger les créneaux disponibles. Veuillez réessayer plus tard.",
+      "loadErrorFetch": "Erreur lors du chargement des disponibilités",
+      "noSlots": "Aucun créneau disponible pour le moment. Merci de nous contacter directement.",
+      "availableSlots": "Créneaux disponibles",
+      "selectDatePrompt": "Sélectionnez une date pour voir les créneaux.",
+      "weekdayLabels": ["L", "M", "M", "J", "V", "S", "D"],
+      "locale": "fr-FR"
+    },
+    "changeSlot": "Changer de créneau",
+    "yourDetails": "Vos coordonnées",
+    "form": {
+      "nameLabel": "Votre nom",
+      "namePlaceholder": "Nom",
+      "emailLabel": "Votre email",
+      "emailPlaceholder": "Email",
+      "phoneLabel": "Votre téléphone",
+      "phonePlaceholder": "Téléphone",
+      "subjectLabel": "Objet de votre demande",
+      "subjectOptions": {
+        "audit": "Audit",
+        "conferences": "Conférences",
+        "other": "Autres"
+      },
+      "customSubjectLabel": "Précisez le motif",
+      "customSubjectPlaceholder": "Précisez le motif de votre demande",
+      "messageOptionalLabel": "Votre message (optionnel)",
+      "messagePlaceholder": "Précisez l'objet de votre rendez-vous...",
+      "submit": "Confirmer la demande",
+      "submitting": "Envoi...",
+      "errors": {
+        "name": "Le nom est requis",
+        "phone": "Le téléphone est requis",
+        "phoneInvalid": "Format de téléphone invalide",
+        "email": "L'email est requis",
+        "emailInvalid": "Adresse email invalide",
+        "customSubject": "Merci de préciser le motif de votre demande"
+      },
+      "submitErrorGeneric": "Erreur lors de l'envoi",
+      "submitErrorNetwork": "Impossible d'envoyer votre demande. Vérifiez votre connexion et réessayez."
+    },
+    "success": {
+      "title": "Demande envoyée !",
+      "body": "Votre demande a été envoyée, vous recevrez une confirmation par email une fois validée par notre équipe.",
+      "resendButton": "Faire une autre demande"
+    }
+  },
+  "apropos": {
+    "seo": {
+      "title": "À Propos | HWH Consulting",
+      "description": "Georges D., fondateur de HWH Consulting : 20 ans d'expérience terrain en sûreté et performance retail, luxe et sport. Audit, formation et conférence."
+    },
+    "eyebrow": "Le Fondateur",
+    "name": "Georges D.",
+    "intro": "20 ans d'expérience terrain entre retail et sûreté, du sport au luxe : une expertise au service de la protection et de la performance de votre activité.",
+    "paragraphs": [
+      "Georges D. a construit son expertise sur le terrain, au cœur des enjeux de sûreté et de performance qui traversent les univers du retail, du sport et du luxe. Vingt années d'expérience opérationnelle lui ont permis de comprendre, de l'intérieur, ce qui distingue une stratégie de sécurité théorique d'une protection réellement efficace.",
+      "Issu d'un parcours d'officier supérieur, il a développé une lecture approfondie des risques : gestion de crise, protection rapprochée, sécurisation d'informations sensibles et coordination d'équipes opérationnelles sous contrainte. Cette expérience du commandement et de la décision en situation exigeante constitue aujourd'hui le socle de son approche du conseil.",
+      "Consultant formateur, Georges accompagne aujourd'hui les entreprises dans l'évaluation de leurs vulnérabilités et l'élaboration de protocoles de sécurité sur-mesure. Il conçoit et anime des formations opérationnelles pour des équipes de terrain, et intervient régulièrement lors de conférences pour sensibiliser comités de direction et collaborateurs aux enjeux sécuritaires contemporains, de l'intelligence économique aux cybermenaces.",
+      "Sa conviction reste la même depuis toujours : la sécurité ne s'improvise pas, elle se construit. Anticiper les risques, transmettre les bons réflexes et protéger durablement les activités de ses clients — c'est la mission qu'il poursuit à travers HWH Consulting."
+    ],
+    "quote": "\"La sécurité n'est pas une option, c'est le socle de toute stratégie pérenne. Notre mission est d'anticiper, de former et de protéger.\"",
+    "ctaTitle": "Envie d'échanger ?",
+    "ctaContact": "Prendre contact",
+    "ctaBooking": "Réserver un échange"
+  },
+  "legal": {
+    "privacy": {
+      "seo": {
+        "title": "Politique de confidentialité | HWH Consulting",
+        "description": "Politique de confidentialité de HWH Consulting : données collectées, finalités, durée de conservation et droits des utilisateurs."
+      },
+      "eyebrow": "Légal",
+      "title": "Politique de confidentialité",
+      "sections": {
+        "controller": {
+          "title": "Responsable du traitement",
+          "bodyPrefix": "Le responsable du traitement des données collectées sur ce site est HWH Consulting, joignable à l'adresse ",
+          "placeholder": "[À compléter : forme juridique, numéro SIRET et adresse du siège social]"
+        },
+        "dataCollected": {
+          "title": "Données collectées",
+          "body": "Dans le cadre de l'utilisation des formulaires de contact et de réservation présents sur ce site, les données suivantes sont collectées : nom, adresse email, numéro de téléphone, message ainsi que, pour les demandes de rendez-vous, le créneau souhaité."
+        },
+        "purpose": {
+          "title": "Finalité du traitement",
+          "body": "Ces données sont utilisées exclusivement pour répondre aux demandes de contact et pour traiter les demandes de rendez-vous (audit, formation ou conférence) soumises via le site."
+        },
+        "recipients": {
+          "title": "Destinataires des données",
+          "body": "Les données sont destinées à HWH Consulting. Elles peuvent transiter par des prestataires techniques utilisés pour le fonctionnement du site (hébergement de base de données, envoi d'emails transactionnels, gestion de calendrier).",
+          "placeholder": "[À compléter : liste exhaustive des sous-traitants et de leur rôle, le cas échéant]"
+        },
+        "retention": {
+          "title": "Durée de conservation",
+          "placeholder": "[À compléter : durée de conservation des données collectées via les formulaires]"
+        },
+        "cookies": {
+          "title": "Cookies et traceurs",
+          "placeholder": "[À compléter : précisez si des cookies, outils de mesure d'audience ou traceurs sont utilisés sur le site]"
+        },
+        "rights": {
+          "title": "Vos droits",
+          "bodyPrefix": "Conformément à la réglementation applicable en matière de protection des données personnelles, vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition concernant vos données. Vous pouvez exercer ces droits à tout moment en écrivant à "
+        },
+        "update": {
+          "title": "Mise à jour",
+          "placeholder": "[À compléter : date de dernière mise à jour de cette politique de confidentialité]"
+        }
+      }
+    },
+    "terms": {
+      "seo": {
+        "title": "Conditions générales | HWH Consulting",
+        "description": "Conditions générales de HWH Consulting : présentation de l'activité, modalités de prise de rendez-vous et conditions applicables."
+      },
+      "eyebrow": "Légal",
+      "title": "Conditions générales",
+      "sections": {
+        "purpose": {
+          "title": "Objet",
+          "body": "Les présentes conditions générales régissent l'utilisation du site HWH Consulting ainsi que les relations entre HWH Consulting et toute personne sollicitant ses prestations d'audit, de formation ou de conférence."
+        },
+        "activity": {
+          "title": "Présentation de l'activité",
+          "body": "HWH Consulting accompagne les entreprises des secteurs retail, luxe et sport sur les enjeux de sûreté et de performance, à travers trois types de prestations : audit & conseil, conférence, et formation opérationnelle.",
+          "placeholder": "[À compléter : forme juridique, numéro SIRET et adresse du siège social]"
+        },
+        "booking": {
+          "title": "Modalités de prise de rendez-vous",
+          "body": "Les demandes de rendez-vous sont soumises via le formulaire de réservation en ligne. Chaque demande est examinée par l'équipe HWH Consulting et fait l'objet d'une confirmation ou d'un refus par email, avant toute inscription définitive au calendrier."
+        },
+        "cancellation": {
+          "title": "Conditions d'annulation et de report",
+          "placeholder": "[À compléter : délai de préavis, modalités d'annulation ou de report d'un rendez-vous confirmé]"
+        },
+        "pricing": {
+          "title": "Tarifs et modalités de paiement",
+          "placeholder": "[À compléter : grille tarifaire et modalités de paiement applicables aux prestations]"
+        },
+        "liability": {
+          "title": "Limitation de responsabilité",
+          "body": "HWH Consulting met en œuvre les moyens nécessaires à la bonne exécution de ses prestations. Sa responsabilité ne saurait toutefois être engagée en cas de force majeure ou de fait indépendant de sa volonté.",
+          "placeholder": "[À compléter : clause de limitation de responsabilité détaillée, à valider avec un conseil juridique]"
+        },
+        "law": {
+          "title": "Droit applicable",
+          "bodyPrefix": "Les présentes conditions générales sont soumises au droit français. En cas de litige, ",
+          "placeholder": "[À compléter : tribunal compétent]"
+        },
+        "contact": {
+          "title": "Contact",
+          "bodyPrefix": "Pour toute question relative aux présentes conditions générales, vous pouvez contacter HWH Consulting à l'adresse "
+        }
+      }
+    },
+    "footprint": {
+      "seo": {
+        "title": "Présence | HWH Consulting",
+        "description": "Zones et pays d'intervention de HWH Consulting pour ses missions d'audit, de formation et de conférence."
+      },
+      "eyebrow": "Présence",
+      "title": "Zones d'intervention",
+      "body": "HWH Consulting intervient auprès d'entreprises des secteurs retail, luxe et sport pour des missions d'audit, de formation et de conférence.",
+      "placeholder": "[À compléter : zones et pays d'intervention]"
+    },
+    "careers": {
+      "seo": {
+        "title": "Carrières | HWH Consulting",
+        "description": "Opportunités professionnelles chez HWH Consulting et candidatures spontanées."
+      },
+      "eyebrow": "Rejoindre HWH",
+      "title": "Carrières",
+      "placeholder": "[À compléter : postes disponibles, ou message du type \"Aucune offre actuelle, envoyez une candidature spontanée à consulting.hwh@gmail.com\"]",
+      "ctaButton": "Envoyer une candidature spontanée"
+    }
+  },
+  "footer": {
+    "booking": "Réserver un rendez-vous",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "footprint": "Global footprint",
+    "careers": "Executive Careers",
+    "copyright": "© 2024 HWH CONSULTING. Site développé par",
+    "devName": "yannickdev"
+  }
+}

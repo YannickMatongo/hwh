@@ -7,6 +7,8 @@ import { useState, FormEvent } from "react";
 import { motion, AnimatePresence } from "motion/react";
 import { Mail, Phone, Linkedin, Send, Check, Loader2 } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "../i18n/routes";
 import Header from "./Header";
 import Footer from "./Footer";
 import SEO from "./SEO";
@@ -14,6 +16,9 @@ import SEO from "./SEO";
 const FORMSPREE_ENDPOINT = "https://formspree.io/f/xdaqeyqj";
 
 export default function Contact() {
+  const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
+
   const [name, setName] = useState("");
   const [phone, setPhone] = useState("");
   const [email, setEmail] = useState("");
@@ -35,21 +40,21 @@ export default function Contact() {
 
   const validateForm = () => {
     const newErrors: typeof errors = {};
-    if (!name.trim()) newErrors.name = "Le nom est requis";
+    if (!name.trim()) newErrors.name = t("contact.form.errors.name");
     if (!phone.trim()) {
-      newErrors.phone = "Le téléphone est requis";
+      newErrors.phone = t("contact.form.errors.phone");
     } else if (!/^\+?[0-9\s\-()]{7,15}$/.test(phone.trim())) {
-      newErrors.phone = "Format de téléphone invalide";
+      newErrors.phone = t("contact.form.errors.phoneInvalid");
     }
     if (!email.trim()) {
-      newErrors.email = "L'email est requis";
+      newErrors.email = t("contact.form.errors.email");
     } else if (!/\S+@\S+\.\S+/.test(email)) {
-      newErrors.email = "Adresse email invalide";
+      newErrors.email = t("contact.form.errors.emailInvalid");
     }
     if (subject === "Autres" && !customSubject.trim()) {
-      newErrors.customSubject = "Merci de préciser le motif de votre demande";
+      newErrors.customSubject = t("contact.form.errors.customSubject");
     }
-    if (!message.trim()) newErrors.message = "Merci de décrire votre besoin";
+    if (!message.trim()) newErrors.message = t("contact.form.errors.message");
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -81,10 +86,10 @@ export default function Contact() {
       if (response.ok) {
         setIsSuccess(true);
       } else {
-        setSubmitError("Une erreur est survenue lors de l'envoi. Veuillez réessayer.");
+        setSubmitError(t("contact.form.submitErrorGeneric"));
       }
     } catch {
-      setSubmitError("Impossible d'envoyer le message. Vérifiez votre connexion et réessayez.");
+      setSubmitError(t("contact.form.submitErrorNetwork"));
     } finally {
       setIsSubmitting(false);
     }
@@ -105,9 +110,9 @@ export default function Contact() {
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
       <SEO
-        title="Contact | HWH Consulting"
-        description="Contactez HWH Consulting pour un audit de sécurité, une conférence ou une formation opérationnelle."
-        path="/contact"
+        title={t("contact.seo.title")}
+        description={t("contact.seo.description")}
+        routeKey="contact"
       />
       <Header />
 
@@ -124,7 +129,7 @@ export default function Contact() {
                 {/* Left Section - Description & Info */}
                 <div className="lg:col-span-6 flex flex-col gap-6 md:gap-8">
                   <div className="flex items-center gap-4">
-                    <img src="/logo.png" alt="Logo HWH Consulting" className="h-8 sm:h-10" />
+                    <img src="/logo.png" alt={t("common.logoAlt")} className="h-8 sm:h-10" />
 
                     <motion.div
                       initial={{ opacity: 0, x: -20 }}
@@ -135,7 +140,7 @@ export default function Contact() {
                       <div className="w-6 h-6 bg-black rounded-full flex items-center justify-center text-white">
                         <Mail className="w-3.5 h-3.5" />
                       </div>
-                      <span>Prendre contact</span>
+                      <span>{t("contact.badge")}</span>
                     </motion.div>
                   </div>
 
@@ -146,7 +151,7 @@ export default function Contact() {
                       transition={{ delay: 0.3, duration: 0.6 }}
                       className="text-3xl sm:text-4xl md:text-5xl font-black text-black leading-[1.1] tracking-tighter uppercase"
                     >
-                      Parlons de votre projet
+                      {t("contact.title")}
                     </motion.h1>
 
                     <motion.p
@@ -155,8 +160,7 @@ export default function Contact() {
                       transition={{ delay: 0.4, duration: 0.6 }}
                       className="text-gray-600 text-base leading-relaxed max-w-xl font-normal"
                     >
-                      Audit de sécurité, conférence ou formation opérationnelle : décrivez-nous votre besoin
-                      via le formulaire ci-contre ou contactez-nous directement pour échanger sur votre projet.
+                      {t("contact.intro")}
                     </motion.p>
                   </div>
 
@@ -171,7 +175,7 @@ export default function Contact() {
                         <Phone className="w-4.5 h-4.5" />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs text-gray-400 font-medium">Appelez-nous</span>
+                        <span className="text-xs text-gray-400 font-medium">{t("contact.callUs")}</span>
                         <a href="tel:+33695685012" className="text-black font-semibold text-sm hover:text-[#D32F2F] transition-colors">
                           06 95 68 50 12
                         </a>
@@ -183,7 +187,7 @@ export default function Contact() {
                         <Linkedin className="w-4.5 h-4.5" />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs text-gray-400 font-medium">LinkedIn</span>
+                        <span className="text-xs text-gray-400 font-medium">{t("contact.linkedinLabel")}</span>
                         <a
                           href="https://www.linkedin.com/in/georgesdavid/"
                           target="_blank"
@@ -200,7 +204,7 @@ export default function Contact() {
                         <Mail className="w-4.5 h-4.5" />
                       </div>
                       <div className="flex flex-col">
-                        <span className="text-xs text-gray-400 font-medium">Écrivez-nous</span>
+                        <span className="text-xs text-gray-400 font-medium">{t("contact.writeUs")}</span>
                         <a href="mailto:consulting.hwh@gmail.com" className="text-black font-semibold text-sm hover:text-[#D32F2F] transition-colors">
                           consulting.hwh@gmail.com
                         </a>
@@ -231,7 +235,7 @@ export default function Contact() {
                         <div className="flex flex-col gap-5 lg:gap-7">
                           <div>
                             <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
-                              Votre nom
+                              {t("contact.form.nameLabel")}
                             </label>
                             <input
                               type="text"
@@ -241,7 +245,7 @@ export default function Contact() {
                                 setName(e.target.value);
                                 if (errors.name) setErrors((prev) => ({ ...prev, name: undefined }));
                               }}
-                              placeholder="Nom"
+                              placeholder={t("contact.form.namePlaceholder")}
                               className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.name ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.name && (
@@ -251,7 +255,7 @@ export default function Contact() {
 
                           <div>
                             <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
-                              Votre email
+                              {t("contact.form.emailLabel")}
                             </label>
                             <input
                               type="email"
@@ -261,7 +265,7 @@ export default function Contact() {
                                 setEmail(e.target.value);
                                 if (errors.email) setErrors((prev) => ({ ...prev, email: undefined }));
                               }}
-                              placeholder="Email"
+                              placeholder={t("contact.form.emailPlaceholder")}
                               className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.email ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.email && (
@@ -271,7 +275,7 @@ export default function Contact() {
 
                           <div>
                             <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
-                              Votre téléphone
+                              {t("contact.form.phoneLabel")}
                             </label>
                             <input
                               type="tel"
@@ -281,7 +285,7 @@ export default function Contact() {
                                 setPhone(e.target.value);
                                 if (errors.phone) setErrors((prev) => ({ ...prev, phone: undefined }));
                               }}
-                              placeholder="Téléphone"
+                              placeholder={t("contact.form.phonePlaceholder")}
                               className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.phone ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.phone && (
@@ -291,7 +295,7 @@ export default function Contact() {
 
                           <div>
                             <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
-                              Objet de votre demande
+                              {t("contact.form.subjectLabel")}
                             </label>
                             <select
                               name="subject"
@@ -299,9 +303,9 @@ export default function Contact() {
                               onChange={(e) => setSubject(e.target.value)}
                               className="w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300"
                             >
-                              <option value="Audit">Audit</option>
-                              <option value="Conférences">Conférences</option>
-                              <option value="Autres">Autres</option>
+                              <option value="Audit">{t("contact.form.subjectOptions.audit")}</option>
+                              <option value="Conférences">{t("contact.form.subjectOptions.conferences")}</option>
+                              <option value="Autres">{t("contact.form.subjectOptions.other")}</option>
                             </select>
                           </div>
 
@@ -316,7 +320,7 @@ export default function Contact() {
                                 className="overflow-hidden"
                               >
                                 <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
-                                  Précisez le motif
+                                  {t("contact.form.customSubjectLabel")}
                                 </label>
                                 <input
                                   type="text"
@@ -326,7 +330,7 @@ export default function Contact() {
                                     setCustomSubject(e.target.value);
                                     if (errors.customSubject) setErrors((prev) => ({ ...prev, customSubject: undefined }));
                                   }}
-                                  placeholder="Précisez le motif de votre demande"
+                                  placeholder={t("contact.form.customSubjectPlaceholder")}
                                   className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 ${errors.customSubject ? "ring-2 ring-black" : ""}`}
                                 />
                                 {errors.customSubject && (
@@ -338,7 +342,7 @@ export default function Contact() {
 
                           <div>
                             <label className="block text-white text-sm font-bold mb-1.5 tracking-tight">
-                              Votre message
+                              {t("contact.form.messageLabel")}
                             </label>
                             <textarea
                               name="message"
@@ -348,7 +352,7 @@ export default function Contact() {
                                 setMessage(e.target.value);
                                 if (errors.message) setErrors((prev) => ({ ...prev, message: undefined }));
                               }}
-                              placeholder="Décrivez votre besoin (audit, formation, conférence...)"
+                              placeholder={t("contact.form.messagePlaceholder")}
                               className={`w-full bg-white border border-gray-200 rounded-2xl py-4 px-4 text-black placeholder-gray-400 font-medium text-base focus:outline-none focus:ring-2 focus:ring-black transition-all duration-300 resize-none min-h-[140px] lg:min-h-0 ${errors.message ? "ring-2 ring-black" : ""}`}
                             />
                             {errors.message && (
@@ -375,7 +379,7 @@ export default function Contact() {
                               )}
                             </div>
                             <span className="text-sm tracking-tight">
-                              {isSubmitting ? "Envoi..." : "Envoyer"}
+                              {isSubmitting ? t("contact.form.submitting") : t("contact.form.submit")}
                             </span>
                           </button>
                         </div>
@@ -400,11 +404,12 @@ export default function Contact() {
 
                         <div className="flex flex-col gap-2">
                           <h2 className="text-2xl font-black text-white tracking-tight">
-                            Message envoyé !
+                            {t("contact.success.title")}
                           </h2>
                           <p className="text-white/90 text-sm leading-relaxed max-w-[280px]">
-                            Merci, <span className="font-bold text-white">{name}</span> ! Nous revenons vers vous
-                            rapidement pour échanger sur votre projet.
+                            {t("contact.success.bodyPrefix")}
+                            <span className="font-bold text-white">{name}</span>
+                            {t("contact.success.bodySuffix")}
                           </p>
                         </div>
 
@@ -414,13 +419,13 @@ export default function Contact() {
                             onClick={handleReset}
                             className="bg-black hover:bg-gray-800 text-white font-bold px-6 py-3 rounded-2xl shadow-md active:scale-98 transition-all duration-300 text-xs tracking-wider uppercase"
                           >
-                            Envoyer un autre message
+                            {t("contact.success.resendButton")}
                           </button>
                           <Link
-                            to="/"
+                            to={localizedPath("home")}
                             className="text-white/80 hover:text-white font-bold px-6 py-3 text-xs tracking-wider uppercase transition-colors"
                           >
-                            Retour à l'accueil
+                            {t("common.backHome")}
                           </Link>
                         </div>
                       </motion.div>

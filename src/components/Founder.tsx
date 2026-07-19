@@ -1,8 +1,13 @@
 import { motion } from "motion/react";
 import { ChevronRight, ShieldCheck } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "../i18n/routes";
 
 export default function Founder() {
+  const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
+
   return (
     <section id="fondateur" className="py-16 sm:py-20 md:py-32 px-6 bg-gray-50 border-y border-gray-200">
       <div className="max-w-7xl mx-auto">
@@ -15,24 +20,24 @@ export default function Founder() {
             className="lg:col-span-5 order-2 lg:order-1"
           >
             <div className="space-y-6">
-              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase">Le Fondateur</div>
-              <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase text-black">Georges D.</h2>
+              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase">{t("founder.eyebrow")}</div>
+              <h2 className="text-4xl md:text-5xl font-black tracking-tighter uppercase text-black">{t("founder.name")}</h2>
               <div className="h-1 w-12 bg-[#D32F2F]"></div>
 
               <p className="text-gray-600 text-lg leading-relaxed">
-                20 ans d'expérience terrain entre retail et sûreté, du sport au luxe : une expertise au service de la protection et de la performance de votre activité.
+                {t("founder.bio")}
               </p>
 
               <blockquote className="border-l-4 border-[#D32F2F] pl-6 italic text-gray-600 text-lg">
-                "La sécurité n'est pas une option, c'est le socle de toute stratégie pérenne. Notre mission est d'anticiper, de former et de protéger."
+                {t("founder.quote")}
               </blockquote>
 
               <div className="pt-6">
                 <Link
-                  to="/a-propos"
+                  to={localizedPath("apropos")}
                   className="inline-flex items-center gap-2 group text-black font-bold uppercase tracking-widest text-xs hover:text-[#D32F2F] transition-colors"
                 >
-                  Lire le profil complet
+                  {t("founder.cta")}
                   <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>
@@ -49,7 +54,7 @@ export default function Founder() {
             <div className="relative aspect-[4/3] w-full overflow-hidden">
               <img
                 src="/george.jpg"
-                alt="Georges D., fondateur et consultant en sûreté chez HWH Consulting"
+                alt={t("common.founderImageAlt")}
                 loading="lazy"
                 className="w-full h-full object-cover grayscale brightness-105 contrast-110"
               />

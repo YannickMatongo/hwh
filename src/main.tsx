@@ -4,6 +4,7 @@ import {BrowserRouter} from 'react-router-dom';
 import {HelmetProvider} from 'react-helmet-async';
 import {MotionConfig} from 'motion/react';
 import App from './App.tsx';
+import './i18n/config';
 import './index.css';
 
 createRoot(document.getElementById('root')!).render(

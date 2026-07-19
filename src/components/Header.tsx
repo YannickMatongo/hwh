@@ -1,6 +1,9 @@
 import { Instagram, Linkedin, Menu, X } from "lucide-react";
 import { MouseEvent, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "../i18n/routes";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const HEADER_OFFSET = 80;
 
@@ -12,12 +15,17 @@ function scrollToSection(id: string) {
 }
 
 export default function Header() {
+  const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
 
+  const homePath = localizedPath("home");
+  const isHome = location.pathname === homePath;
+
   useEffect(() => {
-    if (location.pathname === "/" && location.hash) {
+    if (isHome && location.hash) {
       const id = location.hash.replace("#", "");
       requestAnimationFrame(() => scrollToSection(id));
     }
@@ -34,58 +42,59 @@ export default function Header() {
   const handleSectionLinkClick = (e: MouseEvent, id: string) => {
     e.preventDefault();
     setIsMenuOpen(false);
-    if (location.pathname === "/") {
+    if (isHome) {
       scrollToSection(id);
     } else {
-      navigate(`/#${id}`);
+      navigate(`${homePath}#${id}`);
     }
   };
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black border-b border-[#D32F2F]">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center">
-        <Link to="/" className="flex items-center cursor-pointer">
-          <img src="/logo.svg" alt="HWH Consulting" className="h-14 sm:h-16" />
+        <Link to={homePath} className="flex items-center cursor-pointer">
+          <img src="/logo.svg" alt={t("common.logoAlt")} className="h-14 sm:h-16" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
           <Link
-            to="/"
+            to={homePath}
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
           >
-            Accueil
+            {t("header.nav.home")}
           </Link>
           <a
             href="#expertise"
             onClick={(e) => handleSectionLinkClick(e, "expertise")}
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
           >
-            Expertise
+            {t("header.nav.expertise")}
           </a>
           <Link
-            to="/catalogue"
+            to={localizedPath("catalogue")}
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
           >
-            Services
+            {t("header.nav.services")}
           </Link>
           <Link
-            to="/reservation"
+            to={localizedPath("reservation")}
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
           >
-            Réserver un rendez-vous
+            {t("header.nav.booking")}
           </Link>
+          <LanguageSwitcher size="small" />
           <Link
-            to="/contact"
+            to={localizedPath("contact")}
             className="bg-[#D32F2F] hover:bg-[#b02626] transition-colors px-6 py-3 rounded-md text-white text-sm font-bold"
           >
-            Contact
+            {t("header.nav.contact")}
           </Link>
         </nav>
 
         <button
           className="md:hidden text-white p-2.5 -mr-2.5"
           onClick={() => setIsMenuOpen(!isMenuOpen)}
-          aria-label="Menu"
+          aria-label={t("header.menuAriaLabel")}
           aria-expanded={isMenuOpen}
         >
           <Menu size={24} />
@@ -99,51 +108,51 @@ export default function Header() {
             <button
               onClick={() => setIsMenuOpen(false)}
               className="p-1 text-[#D32F2F] hover:opacity-80 transition-opacity"
-              aria-label="Fermer le menu"
+              aria-label={t("header.mobile.closeMenu")}
             >
               <X className="w-6 h-6 stroke-[1.5]" />
             </button>
-            <img src="/logo.svg" alt="Logo HWH Consulting" loading="lazy" className="h-14" />
-            <div className="w-8" aria-hidden="true" />
+            <img src="/logo.svg" alt={t("common.logoAlt")} loading="lazy" className="h-14" />
+            <LanguageSwitcher size="small" />
           </div>
 
           <div className="flex-1 overflow-y-auto pb-10">
             {/* Main Navigation */}
             <nav className="flex flex-col items-center gap-8 mt-12">
               <Link
-                to="/"
+                to={homePath}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
               >
-                Accueil
+                {t("header.mobile.home")}
               </Link>
               <a
                 href="#expertise"
                 onClick={(e) => handleSectionLinkClick(e, "expertise")}
                 className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
               >
-                Expertise
+                {t("header.mobile.expertise")}
               </a>
               <Link
-                to="/catalogue"
+                to={localizedPath("catalogue")}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
               >
-                Catalogue
+                {t("header.mobile.catalogue")}
               </Link>
               <Link
-                to="/reservation"
+                to={localizedPath("reservation")}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
               >
-                Réservation
+                {t("header.mobile.reservation")}
               </Link>
               <Link
-                to="/contact"
+                to={localizedPath("contact")}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
               >
-                Contact
+                {t("header.mobile.contact")}
               </Link>
             </nav>
 

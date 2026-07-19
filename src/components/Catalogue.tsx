@@ -1,59 +1,28 @@
 import { motion } from "motion/react";
 import { BarChart3, ChevronRight, Mic, School } from "lucide-react";
 import { Link } from "react-router-dom";
+import { useTranslation } from "react-i18next";
+import { useLocalizedPath } from "../i18n/routes";
 import Header from "./Header";
 import Footer from "./Footer";
 import SEO from "./SEO";
 
 const categories = [
-  {
-    icon: BarChart3,
-    number: "01",
-    title: "Audit & Conseil",
-    description:
-      "Évaluation exhaustive des vulnérabilités, analyse des risques et élaboration de protocoles de sécurité sur-mesure pour les infrastructures critiques.",
-    items: [
-      "Audit de vulnérabilités physiques et numériques",
-      "Analyse de risques stratégiques",
-      "Élaboration de protocoles de sécurité sur-mesure",
-      "Accompagnement à la mise en conformité",
-    ],
-  },
-  {
-    icon: Mic,
-    number: "02",
-    title: "Conférence",
-    description:
-      "Sensibilisation des comités de direction aux enjeux sécuritaires contemporains et à l'intelligence économique.",
-    items: [
-      "Sensibilisation des comités de direction",
-      "Interventions sur l'intelligence économique",
-      "Ateliers de sensibilisation aux cybermenaces",
-      "Conférences grand public et corporate",
-    ],
-  },
-  {
-    icon: School,
-    number: "03",
-    title: "Formation Opérationnelle",
-    description:
-      "Programmes intensifs d'entraînement à la gestion de crise, protection rapprochée et sécurisation d'informations sensibles pour équipes de terrain.",
-    items: [
-      "Gestion de crise et cellule de crise",
-      "Protection rapprochée",
-      "Sécurisation d'informations sensibles",
-      "Entraînement terrain pour équipes opérationnelles",
-    ],
-  },
-];
+  { icon: BarChart3, number: "01", key: "audit" },
+  { icon: Mic, number: "02", key: "conference" },
+  { icon: School, number: "03", key: "training" },
+] as const;
 
 export default function Catalogue() {
+  const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
+
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
       <SEO
-        title="Catalogue des Prestations | HWH Consulting"
-        description="Découvrez les prestations HWH Consulting : audit et conseil en sécurité, conférences de sensibilisation et formations opérationnelles pour les équipes retail, luxe et sport."
-        path="/catalogue"
+        title={t("catalogue.seo.title")}
+        description={t("catalogue.seo.description")}
+        routeKey="catalogue"
       />
       <Header />
 
@@ -66,25 +35,26 @@ export default function Catalogue() {
               transition={{ duration: 0.6 }}
             >
               <Link
-                to="/"
+                to={localizedPath("home")}
                 className="inline-flex items-center gap-2 text-gray-500 hover:text-[#D32F2F] font-bold uppercase tracking-widest text-xs transition-colors mb-8"
               >
                 <ChevronRight size={16} className="rotate-180" />
-                Retour à l'accueil
+                {t("common.backHome")}
               </Link>
 
-              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">Catalogue</div>
+              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">{t("catalogue.eyebrow")}</div>
               <h1 className="text-3xl sm:text-4xl md:text-6xl font-black tracking-tighter uppercase leading-tight text-black mb-10 sm:mb-14 md:mb-20 max-w-4xl">
-                Catalogue des Prestations
+                {t("catalogue.title")}
               </h1>
             </motion.div>
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {categories.map((category, index) => {
                 const Icon = category.icon;
+                const items = t(`catalogue.categories.${category.key}.items`, { returnObjects: true }) as string[];
                 return (
                   <motion.div
-                    key={category.title}
+                    key={category.key}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true, amount: 0.3 }}
@@ -99,11 +69,15 @@ export default function Catalogue() {
                         </div>
                         <span className="text-black/10 font-black text-2xl font-mono">{category.number}</span>
                       </div>
-                      <h2 className="text-2xl sm:text-3xl font-black uppercase mb-4 text-black">{category.title}</h2>
-                      <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8">{category.description}</p>
+                      <h2 className="text-2xl sm:text-3xl font-black uppercase mb-4 text-black">
+                        {t(`catalogue.categories.${category.key}.title`)}
+                      </h2>
+                      <p className="text-gray-600 text-base sm:text-lg mb-6 sm:mb-8">
+                        {t(`catalogue.categories.${category.key}.description`)}
+                      </p>
 
                       <ul className="space-y-3">
-                        {category.items.map((item) => (
+                        {items.map((item) => (
                           <li key={item} className="flex items-start gap-3 text-gray-600">
                             <span className="mt-2 w-1.5 h-1.5 rounded-full bg-[#D32F2F] flex-shrink-0"></span>
                             <span>{item}</span>

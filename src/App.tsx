@@ -3,8 +3,9 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { lazy, Suspense } from "react";
+import { lazy, ReactNode, Suspense, useEffect } from "react";
 import { Route, Routes } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { Loader2 } from "lucide-react";
 import Header from "./components/Header";
 import Hero from "./components/Hero";
@@ -12,6 +13,7 @@ import Stats from "./components/Stats";
 import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
 import SEO from "./components/SEO";
+import { Lang } from "./i18n/routes";
 
 const Founder = lazy(() => import("./components/Founder"));
 const Catalogue = lazy(() => import("./components/Catalogue"));
@@ -39,14 +41,23 @@ function SectionLoader() {
   );
 }
 
-const HOME_DESCRIPTION =
-  "HWH Consulting accompagne les enseignes retail, luxe et sport avec 20 ans d'expérience terrain : audits de sécurité, conférences et formations opérationnelles.";
+/** Sets the i18next language to match the URL prefix as soon as this route mounts. */
+function LangWrapper({ lang, children }: { lang: Lang; children: ReactNode }) {
+  const { i18n } = useTranslation();
+
+  useEffect(() => {
+    if (i18n.language !== lang) {
+      i18n.changeLanguage(lang);
+    }
+  }, [lang, i18n]);
+
+  return <>{children}</>;
+}
 
 const HOME_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
   name: "HWH Consulting",
-  description: HOME_DESCRIPTION,
   telephone: "+33695685012",
   email: "consulting.hwh@gmail.com",
   url: "https://consulting-hwh.com",
@@ -55,13 +66,15 @@ const HOME_JSON_LD = {
 };
 
 function Home() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
       <SEO
-        title="HWH Consulting | Audit, Formation et Sûreté Retail"
-        description={HOME_DESCRIPTION}
-        path="/"
-        jsonLd={HOME_JSON_LD}
+        title={t("home.seo.title")}
+        description={t("home.seo.description")}
+        routeKey="home"
+        jsonLd={{ ...HOME_JSON_LD, description: t("home.seo.description") }}
       />
       <Header />
 
@@ -83,15 +96,27 @@ export default function App() {
   return (
     <Suspense fallback={<PageLoader />}>
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/catalogue" element={<Catalogue />} />
-        <Route path="/contact" element={<Contact />} />
-        <Route path="/reservation" element={<Reservation />} />
-        <Route path="/a-propos" element={<APropos />} />
-        <Route path="/politique-de-confidentialite" element={<PrivacyPolicy />} />
-        <Route path="/conditions-generales" element={<TermsOfService />} />
-        <Route path="/presence" element={<GlobalFootprint />} />
-        <Route path="/carrieres" element={<Careers />} />
+        {/* French routes (default, unprefixed) */}
+        <Route path="/" element={<LangWrapper lang="fr"><Home /></LangWrapper>} />
+        <Route path="/catalogue" element={<LangWrapper lang="fr"><Catalogue /></LangWrapper>} />
+        <Route path="/contact" element={<LangWrapper lang="fr"><Contact /></LangWrapper>} />
+        <Route path="/reservation" element={<LangWrapper lang="fr"><Reservation /></LangWrapper>} />
+        <Route path="/a-propos" element={<LangWrapper lang="fr"><APropos /></LangWrapper>} />
+        <Route path="/politique-de-confidentialite" element={<LangWrapper lang="fr"><PrivacyPolicy /></LangWrapper>} />
+        <Route path="/conditions-generales" element={<LangWrapper lang="fr"><TermsOfService /></LangWrapper>} />
+        <Route path="/presence" element={<LangWrapper lang="fr"><GlobalFootprint /></LangWrapper>} />
+        <Route path="/carrieres" element={<LangWrapper lang="fr"><Careers /></LangWrapper>} />
+
+        {/* English routes */}
+        <Route path="/en" element={<LangWrapper lang="en"><Home /></LangWrapper>} />
+        <Route path="/en/catalog" element={<LangWrapper lang="en"><Catalogue /></LangWrapper>} />
+        <Route path="/en/contact" element={<LangWrapper lang="en"><Contact /></LangWrapper>} />
+        <Route path="/en/booking" element={<LangWrapper lang="en"><Reservation /></LangWrapper>} />
+        <Route path="/en/about" element={<LangWrapper lang="en"><APropos /></LangWrapper>} />
+        <Route path="/en/privacy-policy" element={<LangWrapper lang="en"><PrivacyPolicy /></LangWrapper>} />
+        <Route path="/en/terms-of-service" element={<LangWrapper lang="en"><TermsOfService /></LangWrapper>} />
+        <Route path="/en/global-footprint" element={<LangWrapper lang="en"><GlobalFootprint /></LangWrapper>} />
+        <Route path="/en/careers" element={<LangWrapper lang="en"><Careers /></LangWrapper>} />
       </Routes>
     </Suspense>
   );

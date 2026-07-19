@@ -5,6 +5,7 @@
 
 import { ReactNode } from "react";
 import { motion } from "motion/react";
+import { useTranslation } from "react-i18next";
 import Header from "./Header";
 import Footer from "./Footer";
 import SEO from "./SEO";
@@ -24,17 +25,25 @@ function Section({ title, children }: { title: string; children: ReactNode }) {
   );
 }
 
-function Placeholder({ children }: { children: ReactNode }) {
-  return <span className="text-[#D32F2F] italic">[À compléter : {children}]</span>;
+function Placeholder({ text }: { text: string }) {
+  return <span className="text-[#D32F2F] italic">{text}</span>;
 }
 
+const EMAIL_LINK = (
+  <a href="mailto:consulting.hwh@gmail.com" className="text-black font-semibold hover:text-[#D32F2F] transition-colors">
+    consulting.hwh@gmail.com
+  </a>
+);
+
 export default function PrivacyPolicy() {
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
       <SEO
-        title="Politique de confidentialité | HWH Consulting"
-        description="Politique de confidentialité de HWH Consulting : données collectées, finalités, durée de conservation et droits des utilisateurs."
-        path="/politique-de-confidentialite"
+        title={t("legal.privacy.seo.title")}
+        description={t("legal.privacy.seo.description")}
+        routeKey="privacy"
       />
       <Header />
 
@@ -46,72 +55,59 @@ export default function PrivacyPolicy() {
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6, ease: "easeOut" }}
             >
-              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">Légal</div>
+              <div className="text-[#D32F2F] font-black tracking-[0.2em] text-sm uppercase mb-4">{t("legal.privacy.eyebrow")}</div>
               <h1 className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tighter uppercase leading-tight text-black mb-10 sm:mb-14">
-                Politique de confidentialité
+                {t("legal.privacy.title")}
               </h1>
             </motion.div>
 
-            <Section title="Responsable du traitement">
+            <Section title={t("legal.privacy.sections.controller.title")}>
               <p>
-                Le responsable du traitement des données collectées sur ce site est HWH Consulting, joignable à
-                l'adresse <a href="mailto:consulting.hwh@gmail.com" className="text-black font-semibold hover:text-[#D32F2F] transition-colors">consulting.hwh@gmail.com</a>.
+                {t("legal.privacy.sections.controller.bodyPrefix")}
+                {EMAIL_LINK}.
               </p>
               <p>
-                <Placeholder>forme juridique, numéro SIRET et adresse du siège social</Placeholder>
-              </p>
-            </Section>
-
-            <Section title="Données collectées">
-              <p>
-                Dans le cadre de l'utilisation des formulaires de contact et de réservation présents sur ce site,
-                les données suivantes sont collectées : nom, adresse email, numéro de téléphone, message ainsi que,
-                pour les demandes de rendez-vous, le créneau souhaité.
+                <Placeholder text={t("legal.privacy.sections.controller.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Finalité du traitement">
+            <Section title={t("legal.privacy.sections.dataCollected.title")}>
+              <p>{t("legal.privacy.sections.dataCollected.body")}</p>
+            </Section>
+
+            <Section title={t("legal.privacy.sections.purpose.title")}>
+              <p>{t("legal.privacy.sections.purpose.body")}</p>
+            </Section>
+
+            <Section title={t("legal.privacy.sections.recipients.title")}>
+              <p>{t("legal.privacy.sections.recipients.body")}</p>
               <p>
-                Ces données sont utilisées exclusivement pour répondre aux demandes de contact et pour traiter les
-                demandes de rendez-vous (audit, formation ou conférence) soumises via le site.
+                <Placeholder text={t("legal.privacy.sections.recipients.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Destinataires des données">
+            <Section title={t("legal.privacy.sections.retention.title")}>
               <p>
-                Les données sont destinées à HWH Consulting. Elles peuvent transiter par des prestataires
-                techniques utilisés pour le fonctionnement du site (hébergement de base de données, envoi d'emails
-                transactionnels, gestion de calendrier).
-              </p>
-              <p>
-                <Placeholder>liste exhaustive des sous-traitants et de leur rôle, le cas échéant</Placeholder>
+                <Placeholder text={t("legal.privacy.sections.retention.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Durée de conservation">
+            <Section title={t("legal.privacy.sections.cookies.title")}>
               <p>
-                <Placeholder>durée de conservation des données collectées via les formulaires</Placeholder>
+                <Placeholder text={t("legal.privacy.sections.cookies.placeholder")} />
               </p>
             </Section>
 
-            <Section title="Cookies et traceurs">
+            <Section title={t("legal.privacy.sections.rights.title")}>
               <p>
-                <Placeholder>précisez si des cookies, outils de mesure d'audience ou traceurs sont utilisés sur le site</Placeholder>
+                {t("legal.privacy.sections.rights.bodyPrefix")}
+                {EMAIL_LINK}.
               </p>
             </Section>
 
-            <Section title="Vos droits">
+            <Section title={t("legal.privacy.sections.update.title")}>
               <p>
-                Conformément à la réglementation applicable en matière de protection des données personnelles, vous
-                disposez d'un droit d'accès, de rectification, de suppression et d'opposition concernant vos
-                données. Vous pouvez exercer ces droits à tout moment en écrivant à{" "}
-                <a href="mailto:consulting.hwh@gmail.com" className="text-black font-semibold hover:text-[#D32F2F] transition-colors">consulting.hwh@gmail.com</a>.
-              </p>
-            </Section>
-
-            <Section title="Mise à jour">
-              <p>
-                <Placeholder>date de dernière mise à jour de cette politique de confidentialité</Placeholder>
+                <Placeholder text={t("legal.privacy.sections.update.placeholder")} />
               </p>
             </Section>
           </div>
