@@ -43,9 +43,9 @@ export default function Header() {
 
   return (
     <header className="fixed top-0 left-0 w-full z-50 bg-black border-b border-[#D32F2F]">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-3 sm:py-4 flex justify-between items-center">
-        <Link to="/" className="text-xl sm:text-2xl font-bold tracking-tighter flex items-center text-white cursor-pointer">
-          HWH<span className="w-2 h-2 bg-[#D32F2F] rounded-full ml-1"></span>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-4 sm:py-5 flex justify-between items-center">
+        <Link to="/" className="flex items-center cursor-pointer">
+          <img src="/logo.svg" alt="HWH Consulting" className="h-14 sm:h-16" />
         </Link>
 
         <nav className="hidden md:flex items-center gap-10">
@@ -103,7 +103,7 @@ export default function Header() {
             >
               <X className="w-6 h-6 stroke-[1.5]" />
             </button>
-            <img src="/logo.png" alt="Logo HWH Consulting" loading="lazy" className="h-8" />
+            <img src="/logo.svg" alt="Logo HWH Consulting" loading="lazy" className="h-14" />
             <div className="w-8" aria-hidden="true" />
           </div>
 

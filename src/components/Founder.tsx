@@ -46,18 +46,18 @@ export default function Founder() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="lg:col-span-7 order-1 lg:order-2"
           >
-            <div className="relative aspect-[4/3] w-full overflow-hidden grayscale brightness-105 contrast-110">
+            <div className="relative aspect-[4/3] w-full overflow-hidden">
               <img
                 src="/george.jpg"
                 alt="Georges D., fondateur et consultant en sûreté chez HWH Consulting"
                 loading="lazy"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover grayscale brightness-105 contrast-110"
               />
               <div className="absolute top-0 right-0 w-8 h-8 bg-[#D32F2F] flex items-center justify-center">
                 <ShieldCheck size={16} className="text-white" />
               </div>
-              <div className="absolute bottom-0 left-0 p-8 bg-[#D32F2F]/90 text-white font-black text-4xl hidden md:block">
-                HWH
+              <div className="absolute bottom-0 left-0 p-10 bg-white border border-gray-200 shadow-lg text-white font-black text-4xl hidden md:block">
+                <img src="/logo.svg" alt="HWH" className="h-28 w-auto object-contain" />
               </div>
             </div>
           </motion.div>

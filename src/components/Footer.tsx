@@ -6,8 +6,8 @@ export default function Footer() {
     <footer className="bg-black border-t-[12px] border-[#D32F2F] pt-12 sm:pt-16 md:pt-20 pb-8 sm:pb-12 px-4 sm:px-6">
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-center gap-8 sm:gap-10 md:gap-12 mb-10 sm:mb-12 md:mb-16 px-0 sm:px-6">
-          <div className="text-4xl sm:text-5xl font-black italic tracking-tighter text-white">
-            HWH
+          <div className="flex items-center">
+            <img src="/logo.svg" alt="HWH Consulting" className="h-16 sm:h-20 w-auto object-contain" />
           </div>
 
           <div className="flex flex-col items-center gap-5 sm:gap-6">
