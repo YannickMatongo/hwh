@@ -51,11 +51,11 @@ export default function APropos() {
                 transition={{ duration: 0.6, delay: 0.1 }}
                 className="lg:col-span-7 order-1 lg:order-2"
               >
-                <div className="relative aspect-[4/3] w-full overflow-hidden grayscale brightness-105 contrast-110">
+                <div className="relative aspect-[4/5] w-full overflow-hidden bg-white grayscale brightness-105 contrast-110">
                   <img
-                    src="/george.jpg"
+                    src="/georges3.jpg"
                     alt={t("common.founderImageAlt")}
-                    className="w-full h-full object-cover"
+                    className="w-full h-full object-contain"
                   />
                   <div className="absolute top-0 right-0 w-8 h-8 bg-[#D32F2F] flex items-center justify-center">
                     <ShieldCheck size={16} className="text-white" />

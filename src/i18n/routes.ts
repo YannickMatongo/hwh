@@ -11,7 +11,8 @@ export type RouteKey =
   | "privacy"
   | "terms"
   | "footprint"
-  | "careers";
+  | "careers"
+  | "news";
 
 export const routes: Record<RouteKey, Record<Lang, string>> = {
   home: { fr: "/", en: "/en" },
@@ -23,6 +24,7 @@ export const routes: Record<RouteKey, Record<Lang, string>> = {
   terms: { fr: "/conditions-generales", en: "/en/terms-of-service" },
   footprint: { fr: "/presence", en: "/en/global-footprint" },
   careers: { fr: "/carrieres", en: "/en/careers" },
+  news: { fr: "/actualites", en: "/en/news" },
 };
 
 export function findRouteKeyByPathname(pathname: string): RouteKey | null {

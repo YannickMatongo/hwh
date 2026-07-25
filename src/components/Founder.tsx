@@ -51,12 +51,12 @@ export default function Founder() {
             transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
             className="lg:col-span-7 order-1 lg:order-2"
           >
-            <div className="relative aspect-[4/3] w-full overflow-hidden">
+            <div className="relative aspect-[4/5] w-full overflow-hidden bg-white">
               <img
-                src="/george.jpg"
+                src="/georges3.jpg"
                 alt={t("common.founderImageAlt")}
                 loading="lazy"
-                className="w-full h-full object-cover grayscale brightness-105 contrast-110"
+                className="w-full h-full object-contain grayscale brightness-105 contrast-110"
               />
               <div className="absolute top-0 right-0 w-8 h-8 bg-[#D32F2F] flex items-center justify-center">
                 <ShieldCheck size={16} className="text-white" />

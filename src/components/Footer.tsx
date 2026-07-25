@@ -41,6 +41,7 @@ export default function Footer() {
 
             <div className="flex flex-wrap justify-center gap-4 sm:gap-8 md:gap-12">
               <Link to={localizedPath("reservation")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.booking")}</Link>
+              <Link to={localizedPath("news")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.news")}</Link>
               <Link to={localizedPath("contact")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.contact")}</Link>
               <Link to={localizedPath("privacy")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.privacy")}</Link>
               <Link to={localizedPath("terms")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.terms")}</Link>

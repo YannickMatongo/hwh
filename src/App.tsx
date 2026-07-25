@@ -24,6 +24,7 @@ const PrivacyPolicy = lazy(() => import("./components/PrivacyPolicy"));
 const TermsOfService = lazy(() => import("./components/TermsOfService"));
 const GlobalFootprint = lazy(() => import("./components/GlobalFootprint"));
 const Careers = lazy(() => import("./components/Careers"));
+const News = lazy(() => import("./components/News"));
 
 function PageLoader() {
   return (
@@ -62,7 +63,7 @@ const HOME_JSON_LD = {
   email: "consulting.hwh@gmail.com",
   url: "https://consulting-hwh.com",
   image: "https://consulting-hwh.com/logo.png",
-  sameAs: ["https://www.linkedin.com/in/georgesdavid/"],
+  sameAs: ["https://www.linkedin.com/company/h-w-h/"],
 };
 
 function Home() {
@@ -106,6 +107,7 @@ export default function App() {
         <Route path="/conditions-generales" element={<LangWrapper lang="fr"><TermsOfService /></LangWrapper>} />
         <Route path="/presence" element={<LangWrapper lang="fr"><GlobalFootprint /></LangWrapper>} />
         <Route path="/carrieres" element={<LangWrapper lang="fr"><Careers /></LangWrapper>} />
+        <Route path="/actualites" element={<LangWrapper lang="fr"><News /></LangWrapper>} />
 
         {/* English routes */}
         <Route path="/en" element={<LangWrapper lang="en"><Home /></LangWrapper>} />
@@ -117,6 +119,7 @@ export default function App() {
         <Route path="/en/terms-of-service" element={<LangWrapper lang="en"><TermsOfService /></LangWrapper>} />
         <Route path="/en/global-footprint" element={<LangWrapper lang="en"><GlobalFootprint /></LangWrapper>} />
         <Route path="/en/careers" element={<LangWrapper lang="en"><Careers /></LangWrapper>} />
+        <Route path="/en/news" element={<LangWrapper lang="en"><News /></LangWrapper>} />
       </Routes>
     </Suspense>
   );

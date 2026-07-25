@@ -189,7 +189,7 @@ export default function Contact() {
                       <div className="flex flex-col">
                         <span className="text-xs text-gray-400 font-medium">{t("contact.linkedinLabel")}</span>
                         <a
-                          href="https://www.linkedin.com/in/georgesdavid/"
+                          href="https://www.linkedin.com/company/h-w-h/"
                           target="_blank"
                           rel="noopener noreferrer"
                           className="text-black font-semibold text-sm hover:text-[#D32F2F] transition-colors"

@@ -257,7 +257,7 @@ export default function Reservation() {
 
                 <div className="mt-auto flex gap-3">
                   <a
-                    href="https://www.linkedin.com/in/georgesdavid/"
+                    href="https://www.linkedin.com/company/h-w-h/"
                     target="_blank"
                     rel="noopener noreferrer"
                     aria-label="LinkedIn"

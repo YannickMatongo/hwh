@@ -16,6 +16,7 @@
       "expertise": "Expertise",
       "services": "Services",
       "booking": "Réserver un rendez-vous",
+      "news": "Actualités",
       "contact": "Contact"
     },
     "mobile": {
@@ -23,6 +24,7 @@
       "expertise": "Expertise",
       "catalogue": "Catalogue",
       "reservation": "Réservation",
+      "news": "Actualités",
       "contact": "Contact",
       "closeMenu": "Fermer le menu"
     },
@@ -225,10 +227,12 @@
     "name": "Georges D.",
     "intro": "20 ans d'expérience terrain entre retail et sûreté, du sport au luxe : une expertise au service de la protection et de la performance de votre activité.",
     "paragraphs": [
-      "Georges D. a construit son expertise sur le terrain, au cœur des enjeux de sûreté et de performance qui traversent les univers du retail, du sport et du luxe. Vingt années d'expérience opérationnelle lui ont permis de comprendre, de l'intérieur, ce qui distingue une stratégie de sécurité théorique d'une protection réellement efficace.",
-      "Issu d'un parcours d'officier supérieur, il a développé une lecture approfondie des risques : gestion de crise, protection rapprochée, sécurisation d'informations sensibles et coordination d'équipes opérationnelles sous contrainte. Cette expérience du commandement et de la décision en situation exigeante constitue aujourd'hui le socle de son approche du conseil.",
-      "Consultant formateur, Georges accompagne aujourd'hui les entreprises dans l'évaluation de leurs vulnérabilités et l'élaboration de protocoles de sécurité sur-mesure. Il conçoit et anime des formations opérationnelles pour des équipes de terrain, et intervient régulièrement lors de conférences pour sensibiliser comités de direction et collaborateurs aux enjeux sécuritaires contemporains, de l'intelligence économique aux cybermenaces.",
-      "Sa conviction reste la même depuis toujours : la sécurité ne s'improvise pas, elle se construit. Anticiper les risques, transmettre les bons réflexes et protéger durablement les activités de ses clients — c'est la mission qu'il poursuit à travers HWH Consulting."
+      "Après plus de dix ans passés à protéger les actifs, les équipes et la réputation des plus grandes enseignes du retail international — et tout autant d'années passées dans le retail lui-même —, j'ai fondé H.W.H pour mettre cette expertise au service de toute organisation qui a besoin d'y voir plus clair sur sa sûreté.",
+      "Mon parcours s'est construit magasin par magasin, région par région, jusqu'à des responsabilités globales. J'ai piloté la sûreté et la protection des actifs pour des groupes comme Ralph Lauren, JD Sports, Claire's et Sunglass Hut, avec un fil conducteur : transformer une fonction perçue comme un coût en un véritable levier de performance.",
+      "Chez Ralph Lauren, sur le flagship parisien, j'ai réduit la démarque à moins de 40 000 € en un an et fait progresser les indicateurs de sûreté de 19 % — en pilotant à la fois les équipes terrain, les prestataires et les investigations internes. Chez Sunglass Hut, j'ai construit de zéro l'ensemble des process sûreté et prévention des pertes pour 110 magasins et 5 enseignes en France et à Monaco, du registre RGPD au protocole de sécurité pour les Jeux Olympiques 2024. Chez JD Sports comme chez Claire's, j'ai accompagné des dizaines de directeurs régionaux et de magasins pour réduire les pertes tout en gardant l'humain au centre. Avant cela, chez Protectim Security Group, j'ai dirigé jusqu'à 200 agents de sécurité privée sur des clients comme Primark ou Apple.",
+      "Cette diversité d'expériences — du luxe à la fast fashion, du monomarque au multi-enseignes, du terrain à la direction — m'a appris une chose : il n'existe pas de solution générique en sûreté retail. Chaque enseigne, chaque réseau de magasins a ses propres failles, ses propres priorités, ses propres contraintes opérationnelles.",
+      "Mon parcours s'est aussi construit du côté de la sécurité privée : j'ai managé plus de 200 agents répartis sur l'ensemble du territoire français, pour des clients couvrant tous les secteurs — du supermarché à l'enseigne de grand luxe. Cette expérience m'a donné une compréhension fine des deux faces du métier : celle du prestataire qui déploie les hommes sur le terrain, et celle du donneur d'ordre qui définit la stratégie. C'est cette double lecture qui fait aujourd'hui la valeur de mon accompagnement.",
+      "C'est cette conviction qui est à l'origine de H.W.H. Aujourd'hui, j'interviens en France et à l'international pour auditer les dispositifs de sûreté, former les équipes aux bonnes pratiques de prévention des pertes, et partager mon expérience lors de conférences dédiées à la sécurité et à la protection des marques — à Paris, Londres, New York ou Milan. Mon objectif reste le même qu'au premier jour : donner aux organisations, grandes ou petites, les moyens concrets de réduire leurs pertes et de sécuriser durablement leur activité."
     ],
     "quote": "\"La sécurité n'est pas une option, c'est le socle de toute stratégie pérenne. Notre mission est d'anticiper, de former et de protéger.\"",
     "ctaTitle": "Envie d'échanger ?",
@@ -346,8 +350,23 @@
       "ctaButton": "Envoyer une candidature spontanée"
     }
   },
+  "news": {
+    "seo": {
+      "title": "Actualités | HWH Consulting",
+      "description": "Actualités et articles de HWH Consulting sur la sûreté et la performance retail."
+    },
+    "eyebrow": "Actualités",
+    "title": "Actualités",
+    "placeholder": "[À compléter : articles et actualités à venir]",
+    "carouselImageAlt": "Image à venir",
+    "carouselCaption": "[Texte à venir]",
+    "carouselPrev": "Image précédente",
+    "carouselNext": "Image suivante",
+    "carouselGoTo": "Aller à l'image"
+  },
   "footer": {
     "booking": "Réserver un rendez-vous",
+    "news": "Actualités",
     "contact": "Contact",
     "privacy": "Privacy Policy",
     "terms": "Terms of Service",

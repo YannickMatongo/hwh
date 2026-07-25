@@ -71,16 +71,16 @@ export default function Header() {
             {t("header.nav.expertise")}
           </a>
           <Link
-            to={localizedPath("catalogue")}
-            className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
-          >
-            {t("header.nav.services")}
-          </Link>
-          <Link
             to={localizedPath("reservation")}
             className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
           >
             {t("header.nav.booking")}
+          </Link>
+          <Link
+            to={localizedPath("news")}
+            className="text-gray-300 hover:text-white transition-colors text-sm font-medium tracking-wide"
+          >
+            {t("header.nav.news")}
           </Link>
           <LanguageSwitcher size="small" />
           <Link
@@ -134,18 +134,18 @@ export default function Header() {
                 {t("header.mobile.expertise")}
               </a>
               <Link
-                to={localizedPath("catalogue")}
-                onClick={() => setIsMenuOpen(false)}
-                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
-              >
-                {t("header.mobile.catalogue")}
-              </Link>
-              <Link
                 to={localizedPath("reservation")}
                 onClick={() => setIsMenuOpen(false)}
                 className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
               >
                 {t("header.mobile.reservation")}
+              </Link>
+              <Link
+                to={localizedPath("news")}
+                onClick={() => setIsMenuOpen(false)}
+                className="text-[13px] font-bold uppercase tracking-[0.2em] text-black hover:text-[#D32F2F] transition-colors"
+              >
+                {t("header.mobile.news")}
               </Link>
               <Link
                 to={localizedPath("contact")}
@@ -168,7 +168,7 @@ export default function Header() {
                 <Instagram className="w-5 h-5 stroke-[2]" />
               </a>
               <a
-                href="https://www.linkedin.com/in/georgesdavid/"
+                href="https://www.linkedin.com/company/h-w-h/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"
