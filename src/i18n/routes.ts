@@ -45,3 +45,8 @@ export function useLocalizedPath() {
   const lang = useCurrentLang();
   return (key: RouteKey) => routes[key][lang];
 }
+
+/** Builds the localized path to a news item's detail page from its slug. */
+export function newsDetailPath(lang: Lang, slug: string): string {
+  return `${routes.news[lang]}/${slug}`;
+}

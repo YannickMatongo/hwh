@@ -357,12 +357,18 @@
     },
     "eyebrow": "News",
     "title": "News",
-    "placeholder": "[To be completed: upcoming articles and news]",
-    "carouselImageAlt": "Image coming soon",
-    "carouselCaption": "[Content coming soon]",
+    "empty": "No news at the moment.",
     "carouselPrev": "Previous image",
     "carouselNext": "Next image",
-    "carouselGoTo": "Go to image"
+    "carouselGoTo": "Go to image",
+    "card": {
+      "readMore": "Learn more"
+    },
+    "detail": {
+      "back": "Back to news",
+      "notFoundTitle": "News item not found",
+      "notFoundBody": "This news item doesn't exist or is no longer available."
+    }
   },
   "footer": {
     "booking": "Book an appointment",

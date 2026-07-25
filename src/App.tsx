@@ -14,6 +14,7 @@ import Expertise from "./components/Expertise";
 import Footer from "./components/Footer";
 import SEO from "./components/SEO";
 import { Lang } from "./i18n/routes";
+import ProtectedRoute from "./components/admin/ProtectedRoute";
 
 const Founder = lazy(() => import("./components/Founder"));
 const Catalogue = lazy(() => import("./components/Catalogue"));
@@ -25,6 +26,10 @@ const TermsOfService = lazy(() => import("./components/TermsOfService"));
 const GlobalFootprint = lazy(() => import("./components/GlobalFootprint"));
 const Careers = lazy(() => import("./components/Careers"));
 const News = lazy(() => import("./components/News"));
+const NewsDetail = lazy(() => import("./components/NewsDetail"));
+const AdminLogin = lazy(() => import("./components/admin/Login"));
+const AdminDashboard = lazy(() => import("./components/admin/Dashboard"));
+const AdminNewsForm = lazy(() => import("./components/admin/NewsForm"));
 
 function PageLoader() {
   return (
@@ -108,6 +113,7 @@ export default function App() {
         <Route path="/presence" element={<LangWrapper lang="fr"><GlobalFootprint /></LangWrapper>} />
         <Route path="/carrieres" element={<LangWrapper lang="fr"><Careers /></LangWrapper>} />
         <Route path="/actualites" element={<LangWrapper lang="fr"><News /></LangWrapper>} />
+        <Route path="/actualites/:slug" element={<LangWrapper lang="fr"><NewsDetail /></LangWrapper>} />
 
         {/* English routes */}
         <Route path="/en" element={<LangWrapper lang="en"><Home /></LangWrapper>} />
@@ -120,6 +126,34 @@ export default function App() {
         <Route path="/en/global-footprint" element={<LangWrapper lang="en"><GlobalFootprint /></LangWrapper>} />
         <Route path="/en/careers" element={<LangWrapper lang="en"><Careers /></LangWrapper>} />
         <Route path="/en/news" element={<LangWrapper lang="en"><News /></LangWrapper>} />
+        <Route path="/en/news/:slug" element={<LangWrapper lang="en"><NewsDetail /></LangWrapper>} />
+
+        {/* Admin routes — not exposed in any navigation menu, French-only */}
+        <Route path="/admin/login" element={<AdminLogin />} />
+        <Route
+          path="/admin"
+          element={
+            <ProtectedRoute>
+              <AdminDashboard />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/new"
+          element={
+            <ProtectedRoute>
+              <AdminNewsForm />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/admin/edit/:slug"
+          element={
+            <ProtectedRoute>
+              <AdminNewsForm />
+            </ProtectedRoute>
+          }
+        />
       </Routes>
     </Suspense>
   );

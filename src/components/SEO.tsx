@@ -16,15 +16,18 @@ interface SEOProps {
   routeKey: RouteKey;
   image?: string;
   jsonLd?: Record<string, unknown>;
+  /** Overrides the routeKey-derived paths — needed for dynamic (slug-based) pages. */
+  slugPaths?: { fr: string; en: string };
 }
 
-export default function SEO({ title, description, routeKey, image = DEFAULT_IMAGE, jsonLd }: SEOProps) {
+export default function SEO({ title, description, routeKey, image = DEFAULT_IMAGE, jsonLd, slugPaths }: SEOProps) {
   const lang = useCurrentLang();
   const { i18n } = useTranslation();
-  const path = routes[routeKey][lang];
+  const paths = slugPaths ?? routes[routeKey];
+  const path = paths[lang];
   const url = `${SITE_URL}${path}`;
-  const frUrl = `${SITE_URL}${routes[routeKey].fr}`;
-  const enUrl = `${SITE_URL}${routes[routeKey].en}`;
+  const frUrl = `${SITE_URL}${paths.fr}`;
+  const enUrl = `${SITE_URL}${paths.en}`;
 
   return (
     <Helmet>

@@ -357,12 +357,18 @@
     },
     "eyebrow": "Actualités",
     "title": "Actualités",
-    "placeholder": "[À compléter : articles et actualités à venir]",
-    "carouselImageAlt": "Image à venir",
-    "carouselCaption": "[Texte à venir]",
+    "empty": "Aucune actualité pour le moment.",
     "carouselPrev": "Image précédente",
     "carouselNext": "Image suivante",
-    "carouselGoTo": "Aller à l'image"
+    "carouselGoTo": "Aller à l'image",
+    "card": {
+      "readMore": "En savoir plus"
+    },
+    "detail": {
+      "back": "Retour aux actualités",
+      "notFoundTitle": "Actualité non trouvée",
+      "notFoundBody": "Cette actualité n'existe pas ou n'est plus disponible."
+    }
   },
   "footer": {
     "booking": "Réserver un rendez-vous",
