@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import { ArrowDown, ArrowUp, Loader2, Plus, UploadCloud, X } from "lucide-react";
 import { createNewsItem, fetchNewsItemBySlug, NewsItemInput, updateNewsItem } from "../../lib/newsItems";
 import { supabase } from "../../lib/supabaseClient";
+import AdminNav from "./AdminNav";
 
 function slugify(value: string): string {
   return value
@@ -235,13 +236,13 @@ export default function NewsForm() {
 
   return (
     <div className="min-h-screen bg-gray-50 font-sans">
-      <header className="bg-white border-b border-gray-200 px-6 py-4">
-        <h1 className="text-lg font-bold text-black uppercase tracking-wide">
-          {isEditMode ? "Modifier l'actualité" : "Nouvelle actualité"}
-        </h1>
-      </header>
+      <AdminNav />
 
       <main className="max-w-3xl mx-auto px-6 py-10">
+        <h1 className="text-lg font-bold text-black uppercase tracking-wide mb-6">
+          {isEditMode ? "Modifier l'actualité" : "Nouvelle actualité"}
+        </h1>
+
         {error && <p className="text-sm text-[#D32F2F] font-medium mb-6">{error}</p>}
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-8">
