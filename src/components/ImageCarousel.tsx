@@ -95,7 +95,7 @@ export default function ImageCarousel({
           setIsHovering(false);
           triggerManualPause();
         }}
-        className="relative w-full h-[300px] sm:h-[380px] md:h-[440px] bg-gray-50 rounded-2xl overflow-hidden"
+        className="relative w-full h-[68vh] min-h-[360px] max-h-[560px] sm:h-[380px] sm:min-h-0 sm:max-h-none md:h-[440px] bg-gray-50 rounded-2xl overflow-hidden"
       >
         {nextNextImage && (
           <div className="hidden sm:block absolute top-[14%] left-[86%] w-[24%] h-[72%] rounded-2xl overflow-hidden shadow-md z-10">
@@ -109,7 +109,7 @@ export default function ImageCarousel({
             type="button"
             onClick={goNext}
             aria-label={nextLabel}
-            className="absolute top-[7%] left-[70%] w-[20%] h-[86%] rounded-2xl overflow-hidden shadow-lg z-20 cursor-pointer"
+            className="absolute top-[7%] left-[82%] w-[16%] h-[86%] sm:left-[70%] sm:w-[20%] rounded-2xl overflow-hidden shadow-lg z-20 cursor-pointer"
           >
             <img src={nextImage.src} alt="" className="w-full h-full object-cover" />
             <div className="absolute inset-0 bg-black/30 hover:bg-black/15 transition-colors" />
@@ -118,7 +118,7 @@ export default function ImageCarousel({
 
         <div
           className={`absolute left-0 top-0 h-full rounded-2xl overflow-hidden shadow-2xl border border-gray-200 bg-white z-30 transition-transform duration-500 hover:scale-[1.01] ${
-            total > 1 ? "w-[76%]" : "w-full"
+            total > 1 ? "w-[85%] sm:w-[76%]" : "w-full"
           }`}
         >
           <AnimatePresence initial={false} mode="wait">
@@ -154,7 +154,7 @@ export default function ImageCarousel({
               type="button"
               onClick={goNext}
               aria-label={nextLabel}
-              className="absolute right-[24%] top-1/2 -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-white/90 shadow-md flex items-center justify-center text-gray-700 hover:text-[#D32F2F] transition-colors"
+              className="absolute right-[15%] sm:right-[24%] top-1/2 -translate-y-1/2 z-40 w-10 h-10 rounded-full bg-white/90 shadow-md flex items-center justify-center text-gray-700 hover:text-[#D32F2F] transition-colors"
             >
               <ChevronRight size={20} />
             </button>
