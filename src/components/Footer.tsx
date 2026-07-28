@@ -1,4 +1,4 @@
-import { Instagram, Linkedin } from "lucide-react";
+import { Linkedin } from "lucide-react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPath } from "../i18n/routes";
@@ -19,16 +19,7 @@ export default function Footer() {
           <div className="flex flex-col items-center gap-5 sm:gap-6">
             <div className="flex items-center gap-3">
               <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="p-2.5 text-gray-500 hover:text-[#D32F2F] transition-colors"
-              >
-                <Instagram size={20} />
-              </a>
-              <a
-                href="#"
+                href="https://www.linkedin.com/company/h-w-h/"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="LinkedIn"

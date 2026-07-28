@@ -1,4 +1,4 @@
-import { Instagram, Linkedin, Menu, X } from "lucide-react";
+import { Linkedin, Menu, X } from "lucide-react";
 import { MouseEvent, useEffect, useState } from "react";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
@@ -158,15 +158,6 @@ export default function Header() {
 
             {/* Social Icons */}
             <div className="flex items-center justify-center gap-6 mt-16">
-              <a
-                href="#"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Instagram"
-                className="text-black hover:text-[#D32F2F] transition-colors"
-              >
-                <Instagram className="w-5 h-5 stroke-[2]" />
-              </a>
               <a
                 href="https://www.linkedin.com/company/h-w-h/"
                 target="_blank"
