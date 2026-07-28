@@ -1,9 +1,32 @@
 import { motion } from "motion/react";
 import { ArrowRight } from "lucide-react";
 import { useTranslation } from "react-i18next";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { useLocalizedPath } from "../i18n/routes";
+
+const HEADER_OFFSET = 80;
+
+function scrollToSection(id: string) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const top = el.getBoundingClientRect().top + window.scrollY - HEADER_OFFSET;
+  window.scrollTo({ top, behavior: "smooth" });
+}
 
 export default function Hero() {
   const { t } = useTranslation();
+  const localizedPath = useLocalizedPath();
+  const location = useLocation();
+  const navigate = useNavigate();
+  const homePath = localizedPath("home");
+
+  const handleExpertiseClick = () => {
+    if (location.pathname === homePath) {
+      scrollToSection("expertise");
+    } else {
+      navigate(`${homePath}#expertise`);
+    }
+  };
 
   return (
     <section className="relative overflow-hidden pt-28 sm:pt-32 md:pt-40 pb-16 sm:pb-24 md:pb-32 px-6">
@@ -31,12 +54,18 @@ export default function Hero() {
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 sm:gap-5 w-full sm:w-auto">
-            <button className="bg-[#D32F2F] hover:bg-[#b02626] transition-all hover:translate-x-1 duration-300 text-white font-bold px-6 sm:px-8 py-4 sm:py-5 flex items-center justify-center gap-3">
+            <button
+              onClick={handleExpertiseClick}
+              className="bg-[#D32F2F] hover:bg-[#b02626] transition-all hover:translate-x-1 duration-300 text-white font-bold px-6 sm:px-8 py-4 sm:py-5 flex items-center justify-center gap-3"
+            >
               {t("hero.ctaPrimary")} <ArrowRight size={20} />
             </button>
-            <button className="border border-gray-300 hover:border-gray-900 transition-colors text-gray-900 font-bold px-6 sm:px-8 py-4 sm:py-5">
+            <Link
+              to={localizedPath("reservation")}
+              className="border border-gray-300 hover:border-gray-900 transition-colors text-gray-900 font-bold px-6 sm:px-8 py-4 sm:py-5 text-center"
+            >
               {t("hero.ctaSecondary")}
-            </button>
+            </Link>
           </div>
         </motion.div>
       </div>
