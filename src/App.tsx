@@ -30,6 +30,7 @@ const NewsDetail = lazy(() => import("./components/NewsDetail"));
 const AdminLogin = lazy(() => import("./components/admin/Login"));
 const AdminDashboard = lazy(() => import("./components/admin/Dashboard"));
 const AdminNewsForm = lazy(() => import("./components/admin/NewsForm"));
+const NotFound = lazy(() => import("./components/NotFound"));
 
 function PageLoader() {
   return (
@@ -154,6 +155,9 @@ export default function App() {
             </ProtectedRoute>
           }
         />
+
+        {/* Catch-all 404 — detects fr/en from the URL prefix itself */}
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

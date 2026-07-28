@@ -380,5 +380,14 @@
     "careers": "Executive Careers",
     "copyright": "© 2024 HWH CONSULTING. Website developed by",
     "devName": "yannickdev"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page Not Found | HWH Consulting",
+      "description": "The page you're looking for doesn't exist or has been moved."
+    },
+    "title": "Page not found",
+    "description": "The page you're looking for doesn't exist or has been moved.",
+    "backHome": "Back to home"
   }
 }

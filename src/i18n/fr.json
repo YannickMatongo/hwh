@@ -380,5 +380,14 @@
     "careers": "Executive Careers",
     "copyright": "© 2024 HWH CONSULTING. Site développé par",
     "devName": "yannickdev"
+  },
+  "notFound": {
+    "seo": {
+      "title": "Page introuvable | HWH Consulting",
+      "description": "La page que vous cherchez n'existe pas ou a été déplacée."
+    },
+    "title": "Page introuvable",
+    "description": "La page que vous cherchez n'existe pas ou a été déplacée.",
+    "backHome": "Retour à l'accueil"
   }
 }

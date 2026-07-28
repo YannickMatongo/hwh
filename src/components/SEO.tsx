@@ -13,37 +13,50 @@ const DEFAULT_IMAGE = `${SITE_URL}/logo.png`;
 interface SEOProps {
   title: string;
   description: string;
-  routeKey: RouteKey;
+  /** Omit for pages with no canonical route (e.g. a 404 catch-all) — canonical/hreflang links are skipped in that case. */
+  routeKey?: RouteKey;
   image?: string;
   jsonLd?: Record<string, unknown>;
   /** Overrides the routeKey-derived paths — needed for dynamic (slug-based) pages. */
   slugPaths?: { fr: string; en: string };
+  /** Adds a robots noindex,nofollow meta tag — for pages that shouldn't be indexed (404, admin, etc). */
+  noIndex?: boolean;
 }
 
-export default function SEO({ title, description, routeKey, image = DEFAULT_IMAGE, jsonLd, slugPaths }: SEOProps) {
+export default function SEO({
+  title,
+  description,
+  routeKey,
+  image = DEFAULT_IMAGE,
+  jsonLd,
+  slugPaths,
+  noIndex = false,
+}: SEOProps) {
   const lang = useCurrentLang();
   const { i18n } = useTranslation();
-  const paths = slugPaths ?? routes[routeKey];
-  const path = paths[lang];
-  const url = `${SITE_URL}${path}`;
-  const frUrl = `${SITE_URL}${paths.fr}`;
-  const enUrl = `${SITE_URL}${paths.en}`;
+  const paths = slugPaths ?? (routeKey ? routes[routeKey] : undefined);
+  const url = paths ? `${SITE_URL}${paths[lang]}` : undefined;
 
   return (
     <Helmet>
       <html lang={i18n.language} />
       <title>{title}</title>
       <meta name="description" content={description} />
-      <link rel="canonical" href={url} />
+      {noIndex && <meta name="robots" content="noindex, nofollow" />}
+      {url && <link rel="canonical" href={url} />}
 
-      <link rel="alternate" hrefLang="fr" href={frUrl} />
-      <link rel="alternate" hrefLang="en" href={enUrl} />
-      <link rel="alternate" hrefLang="x-default" href={frUrl} />
+      {paths && (
+        <>
+          <link rel="alternate" hrefLang="fr" href={`${SITE_URL}${paths.fr}`} />
+          <link rel="alternate" hrefLang="en" href={`${SITE_URL}${paths.en}`} />
+          <link rel="alternate" hrefLang="x-default" href={`${SITE_URL}${paths.fr}`} />
+        </>
+      )}
 
       <meta property="og:type" content="website" />
       <meta property="og:title" content={title} />
       <meta property="og:description" content={description} />
-      <meta property="og:url" content={url} />
+      {url && <meta property="og:url" content={url} />}
       <meta property="og:image" content={image} />
       <meta property="og:locale" content={lang === "en" ? "en_US" : "fr_FR"} />
 
