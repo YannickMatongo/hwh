@@ -272,7 +272,12 @@
         },
         "cookies": {
           "title": "Cookies et traceurs",
-          "placeholder": "[À compléter : précisez si des cookies, outils de mesure d'audience ou traceurs sont utilisés sur le site]"
+          "intro": "Ce site utilise des cookies pour assurer son bon fonctionnement et, avec votre consentement, pour mesurer son audience.",
+          "necessary": "Cookies strictement nécessaires : indispensables au fonctionnement du site (navigation, sécurité), ils ne peuvent pas être désactivés.",
+          "analytics": "Cookies de mesure d'audience (Google Analytics) : déposés uniquement si vous les acceptez, ils nous permettent de mesurer la fréquentation du site de manière anonyme.",
+          "manageBodyPrefix": "Vous pouvez à tout moment modifier vos choix en cliquant sur le lien ",
+          "manageLinkLabel": "Gérer les cookies",
+          "manageBodySuffix": " situé en bas de page."
         },
         "rights": {
           "title": "Vos droits",
@@ -378,6 +383,7 @@
     "terms": "Terms of Service",
     "footprint": "Global footprint",
     "careers": "Executive Careers",
+    "manageCookies": "Gérer les cookies",
     "copyright": "© 2024 HWH CONSULTING. Site développé par",
     "devName": "yannickdev"
   },

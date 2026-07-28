@@ -3,7 +3,7 @@
  * SPDX-License-Identifier: Apache-2.0
  */
 
-import { lazy, ReactNode, Suspense, useEffect } from "react";
+import { lazy, ReactNode, Suspense, useEffect, useRef } from "react";
 import { Route, Routes } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { Loader2 } from "lucide-react";
@@ -15,6 +15,7 @@ import Footer from "./components/Footer";
 import SEO from "./components/SEO";
 import { Lang } from "./i18n/routes";
 import ProtectedRoute from "./components/admin/ProtectedRoute";
+import { initCookieConsent, setCookieConsentLanguage } from "./lib/cookieConsent";
 
 const Founder = lazy(() => import("./components/Founder"));
 const Catalogue = lazy(() => import("./components/Catalogue"));
@@ -61,6 +62,24 @@ function LangWrapper({ lang, children }: { lang: Lang; children: ReactNode }) {
   return <>{children}</>;
 }
 
+/** Mounted once at the app root: shows the cookie consent banner and keeps it in sync with the active language. */
+function CookieConsentManager() {
+  const { i18n } = useTranslation();
+  const wasInitialized = useRef(false);
+  const lang: Lang = i18n.language.startsWith("en") ? "en" : "fr";
+
+  useEffect(() => {
+    if (!wasInitialized.current) {
+      wasInitialized.current = true;
+      initCookieConsent(lang);
+    } else {
+      setCookieConsentLanguage(lang);
+    }
+  }, [lang]);
+
+  return null;
+}
+
 const HOME_JSON_LD = {
   "@context": "https://schema.org",
   "@type": "ProfessionalService",
@@ -101,64 +120,67 @@ function Home() {
 
 export default function App() {
   return (
-    <Suspense fallback={<PageLoader />}>
-      <Routes>
-        {/* French routes (default, unprefixed) */}
-        <Route path="/" element={<LangWrapper lang="fr"><Home /></LangWrapper>} />
-        <Route path="/catalogue" element={<LangWrapper lang="fr"><Catalogue /></LangWrapper>} />
-        <Route path="/contact" element={<LangWrapper lang="fr"><Contact /></LangWrapper>} />
-        <Route path="/reservation" element={<LangWrapper lang="fr"><Reservation /></LangWrapper>} />
-        <Route path="/a-propos" element={<LangWrapper lang="fr"><APropos /></LangWrapper>} />
-        <Route path="/politique-de-confidentialite" element={<LangWrapper lang="fr"><PrivacyPolicy /></LangWrapper>} />
-        <Route path="/conditions-generales" element={<LangWrapper lang="fr"><TermsOfService /></LangWrapper>} />
-        <Route path="/presence" element={<LangWrapper lang="fr"><GlobalFootprint /></LangWrapper>} />
-        <Route path="/carrieres" element={<LangWrapper lang="fr"><Careers /></LangWrapper>} />
-        <Route path="/actualites" element={<LangWrapper lang="fr"><News /></LangWrapper>} />
-        <Route path="/actualites/:slug" element={<LangWrapper lang="fr"><NewsDetail /></LangWrapper>} />
+    <>
+      <CookieConsentManager />
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          {/* French routes (default, unprefixed) */}
+          <Route path="/" element={<LangWrapper lang="fr"><Home /></LangWrapper>} />
+          <Route path="/catalogue" element={<LangWrapper lang="fr"><Catalogue /></LangWrapper>} />
+          <Route path="/contact" element={<LangWrapper lang="fr"><Contact /></LangWrapper>} />
+          <Route path="/reservation" element={<LangWrapper lang="fr"><Reservation /></LangWrapper>} />
+          <Route path="/a-propos" element={<LangWrapper lang="fr"><APropos /></LangWrapper>} />
+          <Route path="/politique-de-confidentialite" element={<LangWrapper lang="fr"><PrivacyPolicy /></LangWrapper>} />
+          <Route path="/conditions-generales" element={<LangWrapper lang="fr"><TermsOfService /></LangWrapper>} />
+          <Route path="/presence" element={<LangWrapper lang="fr"><GlobalFootprint /></LangWrapper>} />
+          <Route path="/carrieres" element={<LangWrapper lang="fr"><Careers /></LangWrapper>} />
+          <Route path="/actualites" element={<LangWrapper lang="fr"><News /></LangWrapper>} />
+          <Route path="/actualites/:slug" element={<LangWrapper lang="fr"><NewsDetail /></LangWrapper>} />
 
-        {/* English routes */}
-        <Route path="/en" element={<LangWrapper lang="en"><Home /></LangWrapper>} />
-        <Route path="/en/catalog" element={<LangWrapper lang="en"><Catalogue /></LangWrapper>} />
-        <Route path="/en/contact" element={<LangWrapper lang="en"><Contact /></LangWrapper>} />
-        <Route path="/en/booking" element={<LangWrapper lang="en"><Reservation /></LangWrapper>} />
-        <Route path="/en/about" element={<LangWrapper lang="en"><APropos /></LangWrapper>} />
-        <Route path="/en/privacy-policy" element={<LangWrapper lang="en"><PrivacyPolicy /></LangWrapper>} />
-        <Route path="/en/terms-of-service" element={<LangWrapper lang="en"><TermsOfService /></LangWrapper>} />
-        <Route path="/en/global-footprint" element={<LangWrapper lang="en"><GlobalFootprint /></LangWrapper>} />
-        <Route path="/en/careers" element={<LangWrapper lang="en"><Careers /></LangWrapper>} />
-        <Route path="/en/news" element={<LangWrapper lang="en"><News /></LangWrapper>} />
-        <Route path="/en/news/:slug" element={<LangWrapper lang="en"><NewsDetail /></LangWrapper>} />
+          {/* English routes */}
+          <Route path="/en" element={<LangWrapper lang="en"><Home /></LangWrapper>} />
+          <Route path="/en/catalog" element={<LangWrapper lang="en"><Catalogue /></LangWrapper>} />
+          <Route path="/en/contact" element={<LangWrapper lang="en"><Contact /></LangWrapper>} />
+          <Route path="/en/booking" element={<LangWrapper lang="en"><Reservation /></LangWrapper>} />
+          <Route path="/en/about" element={<LangWrapper lang="en"><APropos /></LangWrapper>} />
+          <Route path="/en/privacy-policy" element={<LangWrapper lang="en"><PrivacyPolicy /></LangWrapper>} />
+          <Route path="/en/terms-of-service" element={<LangWrapper lang="en"><TermsOfService /></LangWrapper>} />
+          <Route path="/en/global-footprint" element={<LangWrapper lang="en"><GlobalFootprint /></LangWrapper>} />
+          <Route path="/en/careers" element={<LangWrapper lang="en"><Careers /></LangWrapper>} />
+          <Route path="/en/news" element={<LangWrapper lang="en"><News /></LangWrapper>} />
+          <Route path="/en/news/:slug" element={<LangWrapper lang="en"><NewsDetail /></LangWrapper>} />
 
-        {/* Admin routes — not exposed in any navigation menu, French-only */}
-        <Route path="/admin/login" element={<AdminLogin />} />
-        <Route
-          path="/admin"
-          element={
-            <ProtectedRoute>
-              <AdminDashboard />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/new"
-          element={
-            <ProtectedRoute>
-              <AdminNewsForm />
-            </ProtectedRoute>
-          }
-        />
-        <Route
-          path="/admin/edit/:slug"
-          element={
-            <ProtectedRoute>
-              <AdminNewsForm />
-            </ProtectedRoute>
-          }
-        />
+          {/* Admin routes — not exposed in any navigation menu, French-only */}
+          <Route path="/admin/login" element={<AdminLogin />} />
+          <Route
+            path="/admin"
+            element={
+              <ProtectedRoute>
+                <AdminDashboard />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/new"
+            element={
+              <ProtectedRoute>
+                <AdminNewsForm />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/admin/edit/:slug"
+            element={
+              <ProtectedRoute>
+                <AdminNewsForm />
+              </ProtectedRoute>
+            }
+          />
 
-        {/* Catch-all 404 — detects fr/en from the URL prefix itself */}
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </Suspense>
+          {/* Catch-all 404 — detects fr/en from the URL prefix itself */}
+          <Route path="*" element={<NotFound />} />
+        </Routes>
+      </Suspense>
+    </>
   );
 }

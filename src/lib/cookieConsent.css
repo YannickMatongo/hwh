@@ -1,0 +1,44 @@
+/**
+ * @license
+ * SPDX-License-Identifier: Apache-2.0
+ */
+
+/* Theme override for vanilla-cookieconsent, matching the site's charte (red/black/white/gray, sharp corners). */
+:root {
+  --cc-font-family: inherit;
+  --cc-modal-border-radius: 0px;
+  --cc-btn-border-radius: 0px;
+
+  --cc-bg: #ffffff;
+  --cc-primary-color: #000000;
+  --cc-secondary-color: #525252;
+
+  --cc-btn-primary-bg: #d32f2f;
+  --cc-btn-primary-border-color: #d32f2f;
+  --cc-btn-primary-color: #ffffff;
+  --cc-btn-primary-hover-bg: #b02626;
+  --cc-btn-primary-hover-border-color: #b02626;
+  --cc-btn-primary-hover-color: #ffffff;
+
+  --cc-btn-secondary-bg: #ffffff;
+  --cc-btn-secondary-color: #000000;
+  --cc-btn-secondary-border-color: #d1d5db;
+  --cc-btn-secondary-hover-bg: #f5f5f5;
+  --cc-btn-secondary-hover-color: #000000;
+  --cc-btn-secondary-hover-border-color: #9ca3af;
+
+  --cc-separator-border-color: #e5e7eb;
+  --cc-cookie-category-block-bg: #f9fafb;
+  --cc-cookie-category-block-border: #e5e7eb;
+  --cc-cookie-category-block-hover-bg: #f3f4f6;
+  --cc-cookie-category-block-hover-border: #d1d5db;
+  --cc-cookie-category-expanded-block-bg: #f9fafb;
+  --cc-cookie-category-expanded-block-hover-bg: #f3f4f6;
+
+  --cc-toggle-on-bg: #d32f2f;
+  --cc-toggle-off-bg: #d1d5db;
+  --cc-toggle-readonly-bg: #eeb3b3;
+
+  --cc-link-color: #d32f2f;
+  --cc-overlay-bg: rgba(0, 0, 0, 0.65);
+}

@@ -9,6 +9,7 @@ import { useTranslation } from "react-i18next";
 import Header from "./Header";
 import Footer from "./Footer";
 import SEO from "./SEO";
+import { showCookiePreferences } from "../lib/cookieConsent";
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
@@ -93,8 +94,21 @@ export default function PrivacyPolicy() {
             </Section>
 
             <Section title={t("legal.privacy.sections.cookies.title")}>
+              <p>{t("legal.privacy.sections.cookies.intro")}</p>
+              <ul className="list-disc pl-5 flex flex-col gap-2">
+                <li>{t("legal.privacy.sections.cookies.necessary")}</li>
+                <li>{t("legal.privacy.sections.cookies.analytics")}</li>
+              </ul>
               <p>
-                <Placeholder text={t("legal.privacy.sections.cookies.placeholder")} />
+                {t("legal.privacy.sections.cookies.manageBodyPrefix")}
+                <button
+                  type="button"
+                  onClick={showCookiePreferences}
+                  className="text-black font-semibold underline hover:text-[#D32F2F] transition-colors"
+                >
+                  {t("legal.privacy.sections.cookies.manageLinkLabel")}
+                </button>
+                {t("legal.privacy.sections.cookies.manageBodySuffix")}
               </p>
             </Section>
 

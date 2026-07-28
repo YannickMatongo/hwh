@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { useLocalizedPath } from "../i18n/routes";
 import LanguageSwitcher from "./LanguageSwitcher";
+import { showCookiePreferences } from "../lib/cookieConsent";
 
 export default function Footer() {
   const { t } = useTranslation();
@@ -38,6 +39,13 @@ export default function Footer() {
               <Link to={localizedPath("terms")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.terms")}</Link>
               <Link to={localizedPath("footprint")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.footprint")}</Link>
               <Link to={localizedPath("careers")} className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors">{t("footer.careers")}</Link>
+              <button
+                type="button"
+                onClick={showCookiePreferences}
+                className="text-gray-500 hover:text-[#D32F2F] text-[10px] uppercase font-black tracking-widest transition-colors"
+              >
+                {t("footer.manageCookies")}
+              </button>
             </div>
           </div>
         </div>
