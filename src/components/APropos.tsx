@@ -12,10 +12,15 @@ import Header from "./Header";
 import Footer from "./Footer";
 import SEO from "./SEO";
 
+type AProposBlock =
+  | { type: "paragraph"; text: string }
+  | { type: "heading"; text: string }
+  | { type: "bullets"; items: string[] };
+
 export default function APropos() {
   const { t } = useTranslation();
   const localizedPath = useLocalizedPath();
-  const paragraphs = t("apropos.paragraphs", { returnObjects: true }) as string[];
+  const content = t("apropos.content", { returnObjects: true }) as AProposBlock[];
 
   return (
     <div className="min-h-screen bg-white text-black font-sans selection:bg-[#D32F2F] selection:text-white">
@@ -74,11 +79,37 @@ export default function APropos() {
               transition={{ duration: 0.6 }}
               className="max-w-3xl flex flex-col gap-6"
             >
-              {paragraphs.map((paragraph, i) => (
-                <p key={i} className="text-gray-600 text-lg leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
+              {content.map((block, i) => {
+                if (block.type === "heading") {
+                  return (
+                    <h2
+                      key={i}
+                      className="text-black font-black text-2xl sm:text-3xl tracking-tight mt-4 first:mt-0"
+                    >
+                      <span className="text-[#D32F2F]">/</span> {block.text}
+                    </h2>
+                  );
+                }
+
+                if (block.type === "bullets") {
+                  return (
+                    <ul key={i} className="flex flex-col gap-4">
+                      {block.items.map((item, j) => (
+                        <li key={j} className="flex gap-3 text-gray-600 text-lg leading-relaxed">
+                          <span className="mt-3 h-2 w-2 flex-shrink-0 rounded-full bg-[#D32F2F]" />
+                          <span>{item}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  );
+                }
+
+                return (
+                  <p key={i} className="text-gray-600 text-lg leading-relaxed">
+                    {block.text}
+                  </p>
+                );
+              })}
 
               <blockquote className="border-l-4 border-[#D32F2F] pl-6 italic text-gray-600 text-lg mt-4">
                 {t("apropos.quote")}

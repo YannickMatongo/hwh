@@ -131,6 +131,7 @@
       "subjectOptions": {
         "audit": "Audit",
         "conferences": "Conférences",
+        "formation": "Formation",
         "other": "Autres"
       },
       "customSubjectLabel": "Précisez le motif",
@@ -193,6 +194,7 @@
       "subjectOptions": {
         "audit": "Audit",
         "conferences": "Conférences",
+        "formation": "Formation",
         "other": "Autres"
       },
       "customSubjectLabel": "Précisez le motif",
@@ -226,13 +228,21 @@
     "eyebrow": "Le Fondateur",
     "name": "Georges D.",
     "intro": "20 ans d'expérience terrain entre retail et sûreté, du sport au luxe : une expertise au service de la protection et de la performance de votre activité.",
-    "paragraphs": [
-      "Après plus de dix ans passés à protéger les actifs, les équipes et la réputation des plus grandes enseignes du retail international — et tout autant d'années passées dans le retail lui-même —, j'ai fondé H.W.H pour mettre cette expertise au service de toute organisation qui a besoin d'y voir plus clair sur sa sûreté.",
-      "Mon parcours s'est construit magasin par magasin, région par région, jusqu'à des responsabilités globales. J'ai piloté la sûreté et la protection des actifs pour des groupes comme Ralph Lauren, JD Sports, Claire's et Sunglass Hut, avec un fil conducteur : transformer une fonction perçue comme un coût en un véritable levier de performance.",
-      "Chez Ralph Lauren, sur le flagship parisien, j'ai réduit la démarque à moins de 40 000 € en un an et fait progresser les indicateurs de sûreté de 19 % — en pilotant à la fois les équipes terrain, les prestataires et les investigations internes. Chez Sunglass Hut, j'ai construit de zéro l'ensemble des process sûreté et prévention des pertes pour 110 magasins et 5 enseignes en France et à Monaco, du registre RGPD au protocole de sécurité pour les Jeux Olympiques 2024. Chez JD Sports comme chez Claire's, j'ai accompagné des dizaines de directeurs régionaux et de magasins pour réduire les pertes tout en gardant l'humain au centre. Avant cela, chez Protectim Security Group, j'ai dirigé jusqu'à 200 agents de sécurité privée sur des clients comme Primark ou Apple.",
-      "Cette diversité d'expériences — du luxe à la fast fashion, du monomarque au multi-enseignes, du terrain à la direction — m'a appris une chose : il n'existe pas de solution générique en sûreté retail. Chaque enseigne, chaque réseau de magasins a ses propres failles, ses propres priorités, ses propres contraintes opérationnelles.",
-      "Mon parcours s'est aussi construit du côté de la sécurité privée : j'ai managé plus de 200 agents répartis sur l'ensemble du territoire français, pour des clients couvrant tous les secteurs — du supermarché à l'enseigne de grand luxe. Cette expérience m'a donné une compréhension fine des deux faces du métier : celle du prestataire qui déploie les hommes sur le terrain, et celle du donneur d'ordre qui définit la stratégie. C'est cette double lecture qui fait aujourd'hui la valeur de mon accompagnement.",
-      "C'est cette conviction qui est à l'origine de H.W.H. Aujourd'hui, j'interviens en France et à l'international pour auditer les dispositifs de sûreté, former les équipes aux bonnes pratiques de prévention des pertes, et partager mon expérience lors de conférences dédiées à la sécurité et à la protection des marques — à Paris, Londres, New York ou Milan. Mon objectif reste le même qu'au premier jour : donner aux organisations, grandes ou petites, les moyens concrets de réduire leurs pertes et de sécuriser durablement leur activité."
+    "content": [
+      { "type": "paragraph", "text": "Fort de plus de vingt ans d'expérience — répartis entre le cœur de l'écosystème retail et la protection de ses actifs —, j'ai fondé H.W.H pour accompagner les organisations dans l'optimisation de leur stratégie de sûreté. Mon ambition est claire : transformer une fonction historiquement perçue comme un centre de coûts en un véritable levier de performance." },
+      { "type": "heading", "text": "Une vision stratégique et opérationnelle" },
+      { "type": "paragraph", "text": "Mon expertise s'est forgée sur le terrain, de la gestion d'un magasin jusqu'aux responsabilités globales, en pilotant la protection des biens et des personnes pour des leaders mondiaux (Ralph Lauren, JD Sports, Claire's, Sunglass Hut)." },
+      { "type": "paragraph", "text": "En parallèle, mon parcours du côté de la sécurité privée — en dirigeant plus de 200 agents sur l'ensemble du territoire pour des clients allant de la grande distribution au luxe (Apple, Primark) — m'a conféré une double lecture stratégique. Je maîtrise aujourd'hui parfaitement les deux facettes du métier : celle du donneur d'ordre qui définit la vision, et celle du prestataire qui déploie les ressources opérationnelles." },
+      { "type": "heading", "text": "Des résultats concrets et mesurables" },
+      { "type": "paragraph", "text": "Cette transversalité, du luxe à la fast fashion, m'a permis de mener à bien des projets d'envergure :" },
+      { "type": "bullets", "items": [
+        "Ralph Lauren (Flagship parisien) : Réduction de la démarque à moins de 40 000 € en un an et amélioration des indicateurs de sécurité de 19 %, en supervisant conjointement les équipes terrain, les prestataires et les investigations internes.",
+        "Sunglass Hut : Création intégrale des processus de sûreté et de prévention des pertes pour 110 boutiques (5 enseignes en France et à Monaco), incluant la conformité RGPD et l'élaboration du protocole de sécurité pour les JO 2024.",
+        "JD Sports & Claire's : Accompagnement de dizaines de directeurs régionaux et de magasins pour endiguer les pertes financières, en maintenant systématiquement l'humain au centre de la démarche."
+      ] },
+      { "type": "heading", "text": "La proposition de valeur de H.W.H" },
+      { "type": "paragraph", "text": "Une certitude se dégage de ce parcours : en matière de sûreté, il n'existe aucune solution générique. Chaque réseau possède ses propres vulnérabilités et contraintes." },
+      { "type": "paragraph", "text": "C'est sur cette conviction que repose H.W.H. Aujourd'hui, j'interviens en France et à l'international pour réaliser des audits, former les équipes aux meilleures pratiques de prévention des pertes, et partager mon expertise lors de conférences mondiales (Paris, Londres, New York, Milan). Mon objectif demeure inchangé : fournir aux entreprises, quelle que soit leur taille, les moyens concrets de sécuriser durablement leur activité." }
     ],
     "quote": "\"La sécurité n'est pas une option, c'est le socle de toute stratégie pérenne. Notre mission est d'anticiper, de former et de protéger.\"",
     "ctaTitle": "Envie d'échanger ?",

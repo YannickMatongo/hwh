@@ -305,6 +305,7 @@ export default function Contact() {
                             >
                               <option value="Audit">{t("contact.form.subjectOptions.audit")}</option>
                               <option value="Conférences">{t("contact.form.subjectOptions.conferences")}</option>
+                              <option value="Formation">{t("contact.form.subjectOptions.formation")}</option>
                               <option value="Autres">{t("contact.form.subjectOptions.other")}</option>
                             </select>
                           </div>

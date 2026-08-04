@@ -131,6 +131,7 @@
       "subjectOptions": {
         "audit": "Audit",
         "conferences": "Conferences",
+        "formation": "Training",
         "other": "Other"
       },
       "customSubjectLabel": "Please specify",
@@ -193,6 +194,7 @@
       "subjectOptions": {
         "audit": "Audit",
         "conferences": "Conferences",
+        "formation": "Training",
         "other": "Other"
       },
       "customSubjectLabel": "Please specify",
@@ -226,13 +228,21 @@
     "eyebrow": "The Founder",
     "name": "Georges D.",
     "intro": "20 years of hands-on experience across retail and security, from sport to luxury: expertise dedicated to protecting and driving the performance of your business.",
-    "paragraphs": [
-      "After more than ten years spent protecting the assets, teams, and reputation of some of the world's largest international retail brands — and just as many years working in retail itself — I founded H.W.H to put that expertise at the service of any organization that needs greater clarity on its security.",
-      "My path was built store by store, region by region, up to global responsibilities. I led security and asset protection for groups such as Ralph Lauren, JD Sports, Claire's, and Sunglass Hut, with one common thread: turning a function often seen as a cost into a genuine driver of performance.",
-      "At Ralph Lauren, on the Paris flagship store, I brought shrinkage down to under €40,000 in one year and improved security indicators by 19% — overseeing field teams, service providers, and internal investigations alike. At Sunglass Hut, I built the entire security and loss prevention framework from scratch for 110 stores and 5 brands across France and Monaco, from the GDPR register to the security protocol for the 2024 Olympic Games. At both JD Sports and Claire's, I supported dozens of regional and store managers in reducing losses while keeping people at the center. Before that, at Protectim Security Group, I managed up to 200 private security officers for clients such as Primark and Apple.",
-      "This diversity of experience — from luxury to fast fashion, from single-brand to multi-brand retail, from the field to management — taught me one thing: there is no one-size-fits-all solution in retail security. Every brand, every store network has its own vulnerabilities, its own priorities, its own operational constraints.",
-      "My path was also built on the private security side: I managed more than 200 officers deployed across France, for clients spanning every sector — from supermarkets to top luxury brands. This experience gave me a deep understanding of both sides of the industry: that of the service provider deploying people in the field, and that of the client defining the strategy. It is this dual perspective that gives my consulting its value today.",
-      "That conviction is what led to the creation of H.W.H. Today, I work across France and internationally to audit security systems, train teams in loss prevention best practices, and share my experience at conferences dedicated to security and brand protection — in Paris, London, New York, and Milan. My goal remains the same as it was on day one: to give organizations, large or small, the concrete means to reduce their losses and secure their business for the long term."
+    "content": [
+      { "type": "paragraph", "text": "With more than twenty years of experience — spanning the heart of the retail ecosystem and the protection of its assets — I founded H.W.H to help organisations optimise their security strategy. My ambition is clear: to transform a function historically seen as a cost centre into a genuine performance driver." },
+      { "type": "heading", "text": "A strategic and operational vision" },
+      { "type": "paragraph", "text": "My expertise was built on the ground, from managing a single store to holding global responsibilities, overseeing the protection of assets and people for world-leading brands (Ralph Lauren, JD Sports, Claire's, Sunglass Hut)." },
+      { "type": "paragraph", "text": "In parallel, my background on the private security side — leading more than 200 officers nationwide for clients ranging from mass retail to luxury (Apple, Primark) — gave me a dual strategic perspective. I now have a thorough command of both sides of the profession: that of the client who defines the vision, and that of the provider who deploys operational resources." },
+      { "type": "heading", "text": "Concrete, measurable results" },
+      { "type": "paragraph", "text": "This cross-sector experience, from luxury to fast fashion, has allowed me to deliver large-scale projects:" },
+      { "type": "bullets", "items": [
+        "Ralph Lauren (Paris flagship): Reduced shrinkage to under €40,000 in one year and improved security indicators by 19%, overseeing field teams, external providers and internal investigations together.",
+        "Sunglass Hut: Built the entire security and loss-prevention framework from scratch for 110 stores (5 brands across France and Monaco), including GDPR compliance and the security protocol for the 2024 Olympic Games.",
+        "JD Sports & Claire's: Supported dozens of regional and store managers in curbing financial losses, consistently keeping people at the centre of the approach."
+      ] },
+      { "type": "heading", "text": "H.W.H's value proposition" },
+      { "type": "paragraph", "text": "One certainty emerges from this journey: in security, there is no one-size-fits-all solution. Every network has its own vulnerabilities and constraints." },
+      { "type": "paragraph", "text": "This conviction is what H.W.H is built on. Today, I work across France and internationally to carry out audits, train teams in loss-prevention best practices, and share my expertise at international conferences (Paris, London, New York, Milan). My objective remains unchanged: to give organisations of any size the concrete means to secure their business sustainably." }
     ],
     "quote": "\"Security is not an option, it is the foundation of any lasting strategy. Our mission is to anticipate, train, and protect.\"",
     "ctaTitle": "Interested in talking?",

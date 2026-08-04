@@ -482,6 +482,7 @@ export default function Reservation() {
                           >
                             <option value="Audit">{t("reservation.form.subjectOptions.audit")}</option>
                             <option value="Conférences">{t("reservation.form.subjectOptions.conferences")}</option>
+                            <option value="Formation">{t("reservation.form.subjectOptions.formation")}</option>
                             <option value="Autres">{t("reservation.form.subjectOptions.other")}</option>
                           </select>
                         </div>
