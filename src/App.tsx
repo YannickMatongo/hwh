@@ -32,6 +32,7 @@ const AdminLogin = lazy(() => import("./components/admin/Login"));
 const AdminDashboard = lazy(() => import("./components/admin/Dashboard"));
 const AdminNewsForm = lazy(() => import("./components/admin/NewsForm"));
 const NotFound = lazy(() => import("./components/NotFound"));
+const BookingStatus = lazy(() => import("./components/BookingStatus"));
 
 function PageLoader() {
   return (
@@ -149,6 +150,9 @@ export default function App() {
           <Route path="/en/careers" element={<LangWrapper lang="en"><Careers /></LangWrapper>} />
           <Route path="/en/news" element={<LangWrapper lang="en"><News /></LangWrapper>} />
           <Route path="/en/news/:slug" element={<LangWrapper lang="en"><NewsDetail /></LangWrapper>} />
+
+          {/* Booking action result page — reached via the accept/refuse links in the owner's email, French-only */}
+          <Route path="/rdv-statut" element={<BookingStatus />} />
 
           {/* Admin routes — not exposed in any navigation menu, French-only */}
           <Route path="/admin/login" element={<AdminLogin />} />

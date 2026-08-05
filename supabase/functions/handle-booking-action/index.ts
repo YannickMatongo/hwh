@@ -2,13 +2,20 @@ import { createClient } from "https://esm.sh/@supabase/supabase-js@2";
 import { getGoogleAccessToken } from "../_shared/google.ts";
 import { sendEmail, escapeHtml } from "../_shared/resend.ts";
 import { formatParisDateTime, formatParisTime } from "../_shared/datetime.ts";
-import { renderPage, htmlResponse } from "../_shared/page.ts";
-import { CALENDAR_ID, TIMEZONE } from "../_shared/constants.ts";
+import { CALENDAR_ID, SITE_URL, TIMEZONE } from "../_shared/constants.ts";
 
 const supabase = createClient(
   Deno.env.get("SUPABASE_URL")!,
   Deno.env.get("SUPABASE_SERVICE_ROLE_KEY")!,
 );
+
+function redirectToStatus(params: Record<string, string>): Response {
+  const url = new URL("/rdv-statut", SITE_URL);
+  for (const [key, value] of Object.entries(params)) {
+    url.searchParams.set(key, value);
+  }
+  return Response.redirect(url.toString(), 302);
+}
 
 Deno.serve(async (req: Request) => {
   const url = new URL(req.url);
@@ -16,7 +23,7 @@ Deno.serve(async (req: Request) => {
   const action = url.searchParams.get("action");
 
   if (!token || (action !== "accept" && action !== "refuse")) {
-    return htmlResponse(renderPage("Requête invalide", "Le lien utilisé est invalide ou incomplet."), 400);
+    return redirectToStatus({ status: "invalid" });
   }
 
   try {
@@ -27,17 +34,12 @@ Deno.serve(async (req: Request) => {
       .single();
 
     if (error || !booking) {
-      return htmlResponse(
-        renderPage("Demande introuvable", "Cette demande de rendez-vous n'existe pas ou a été supprimée."),
-        404,
-      );
+      return redirectToStatus({ status: "notfound" });
     }
 
     if (booking.status !== "pending") {
-      const statusLabel = booking.status === "accepted" ? "acceptée" : "refusée";
-      return htmlResponse(
-        renderPage("Déjà traité", `Cette demande a déjà été traitée (statut actuel : ${statusLabel}).`),
-      );
+      const outcome = booking.status === "accepted" ? "acceptée" : "refusée";
+      return redirectToStatus({ status: "already", outcome });
     }
 
     if (action === "accept") {
@@ -53,10 +55,9 @@ Deno.serve(async (req: Request) => {
           },
           body: JSON.stringify({
             summary: `RDV - ${booking.name}`,
-            description: `Contact : ${booking.email}${booking.phone ? ` / ${booking.phone}` : ""}\n\n${booking.message ?? ""}`,
+            description: `Nom: ${booking.name}\nEmail: ${booking.email}\nTéléphone: ${booking.phone ?? ""}\nMessage: ${booking.message ?? ""}`,
             start: { dateTime: booking.requested_start, timeZone: TIMEZONE },
             end: { dateTime: booking.requested_end, timeZone: TIMEZONE },
-            attendees: [{ email: booking.email }],
           }),
         },
       );
@@ -81,12 +82,7 @@ Deno.serve(async (req: Request) => {
         `,
       });
 
-      return htmlResponse(
-        renderPage(
-          "Rendez-vous confirmé",
-          `Le rendez-vous avec ${escapeHtml(booking.name)} a été accepté et ajouté au calendrier. Un email de confirmation lui a été envoyé.`,
-        ),
-      );
+      return redirectToStatus({ status: "accepted", name: booking.name });
     }
 
     await supabase.from("bookings").update({ status: "refused" }).eq("id", booking.id);
@@ -104,11 +100,9 @@ Deno.serve(async (req: Request) => {
       `,
     });
 
-    return htmlResponse(
-      renderPage("Demande refusée", `La demande de ${escapeHtml(booking.name)} a été refusée. Un email l'informant a été envoyé.`),
-    );
+    return redirectToStatus({ status: "refused", name: booking.name });
   } catch (error) {
     console.error(error);
-    return htmlResponse(renderPage("Erreur", "Une erreur est survenue lors du traitement de la demande."), 500);
+    return redirectToStatus({ status: "error" });
   }
 });
